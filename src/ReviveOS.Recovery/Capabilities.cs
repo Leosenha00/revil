@@ -1,0 +1,2 @@
+namespace ReviveOS.Recovery;
+public static class Capabilities { public const string Status="Alterações pendentes no diário devem ser restauradas antes de reaplicar. Backups são de arquivos confirmados, não de RAM ou processos."; }

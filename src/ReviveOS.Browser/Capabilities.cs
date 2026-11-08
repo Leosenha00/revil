@@ -1,0 +1,2 @@
+namespace ReviveOS.Browser;
+public static class Capabilities { public const string Status="Use o gerenciador do navegador para identificar abas pesadas. Nenhuma extensão ou configuração é alterada automaticamente."; }

@@ -1,0 +1,2 @@
+namespace ReviveOS.Multimedia;
+public static class Capabilities { public const string Status="FFmpeg e Blender dependem de executáveis e host compatíveis. Adaptador de fila remota ainda não implementado."; }

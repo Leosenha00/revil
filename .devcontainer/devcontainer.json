@@ -1,0 +1,1 @@
+{"name":"ReviveOS development","image":"mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm","features":{"ghcr.io/devcontainers/features/python:1":{}},"postCreateCommand":"dotnet restore ReviveOS.sln","remoteUser":"vscode"}

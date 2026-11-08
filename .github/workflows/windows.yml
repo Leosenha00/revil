@@ -1,0 +1,31 @@
+name: Windows build and installer
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: dotnet test tests/ReviveOS.Tests -c Release --logger "trx;LogFileName=tests.trx"
+      - run: dotnet list ReviveOS.sln package --vulnerable --include-transitive
+      - run: dotnet publish src/ReviveOS.UI -c Release -r win-x64 --self-contained true -o publish
+      - shell: pwsh
+        run: |
+          $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (!(Test-Path $compiler)) { throw 'Inno Setup 6 missing on runner' }
+          & $compiler installer/ReviveOS.iss
+          if ($LASTEXITCODE -ne 0) { throw 'Installer compilation failed' }
+          Get-FileHash artifacts/*.exe | Format-List | Out-File artifacts/SHA256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ReviveOS-Windows-x64
+          path: |
+            artifacts/*
+            tests/**/TestResults/*.trx

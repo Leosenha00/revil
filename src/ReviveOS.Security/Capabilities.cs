@@ -1,0 +1,2 @@
+namespace ReviveOS.Security;
+public static class Capabilities { public const string Status="Não há armazenamento de senhas nem upload automático. Relatórios contêm dados do equipamento; revise antes de compartilhar."; }
