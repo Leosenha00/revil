@@ -77,3 +77,9 @@ Inno Setup 6: `iscc installer/ReviveOS.iss`. Alternativa NSIS: `makensis install
 - Ajustes internos do AutoCAD condicionados à versão e aos resultados reais.
 
 Não há infraestrutura Windows gratuita identificada ou disponibilizada para AutoCAD; Codespaces não executa AutoCAD Windows nativamente. Não há hardware virtual adicional transformando HD em RAM.
+
+## Releases
+
+Tags `vX.Y.Z` acionam compilação Windows, testes e smoke test; somente após aprovação o job de release publica o instalador e checksum no GitHub. O job de publicação tem permissão de escrita apenas para esse passo.
+
+Teste SSH opcional: `dotnet run --project tests/ReviveOS.SshIntegration -- <alias> --authorize-test-upload`. Usa um script de teste mínimo e deixa seus arquivos em `.reviveos/jobs/<id>` no host autorizado.

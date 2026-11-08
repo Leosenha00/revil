@@ -1,0 +1,3 @@
+PASS SSH upload, Python execution, download and checksum; job c80846d71b834e5a93187e7927c7dbbb
+PASS confirmed remote result recovery and checksum
+Test files remain on authorized host at .reviveos/jobs/c80846d71b834e5a93187e7927c7dbbb

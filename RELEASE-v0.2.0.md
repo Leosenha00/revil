@@ -2,6 +2,6 @@ ReviveOS Hybrid Extreme 0.2.0 amplia a primeira versão com diário de recupera�
 
 Inclui instalador Windows x64 com .NET incluído. Onze testes automatizados; workflow verifica também diagnóstico e janela WPF no Windows. Consulte o resultado em Actions.
 
-Limites: Wi-Fi, ajustes, AutoCAD e ganhos ainda precisam de validação no notebook. SSH exige host e ferramentas autorizadas, chave e host previamente verificados; integração ponta a ponta ainda pendente. Não fornece máquina Windows gratuita, não garante melhoria de desempenho e não conclui todas as fases. Veja README e VALIDATION.md.
+Limites: Wi-Fi, ajustes, AutoCAD e ganhos ainda precisam de validação no notebook. SSH exige host e ferramentas autorizadas, chave e host previamente verificados; integração ponta a ponta validada com servidor OpenSSH em loopback; host externo do usuário ainda pendente. Não fornece máquina Windows gratuita, não garante melhoria de desempenho e não conclui todas as fases. Veja README e VALIDATION.md.
 
 Comece por Diagnosticar e Simular ajustes. Instalador sem assinatura Authenticode.
