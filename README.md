@@ -1,4 +1,4 @@
-# revil — ReviveOS Hybrid Extreme 0.6.0
+# revil — ReviveOS Hybrid Extreme 0.7.0
 
 Aplicativo Windows 11 x64 em C#/.NET 8 e WPF. Instalador com runtime incluído; não exige instalar .NET separadamente. Código e distribuição: https://github.com/Leosenha00/revil.
 
@@ -84,7 +84,7 @@ Tags `vX.Y.Z` acionam compilação Windows, testes e smoke test; somente após a
 
 Teste SSH opcional: `dotnet run --project tests/ReviveOS.SshIntegration -- <alias> --authorize-test-upload`. Usa um script de teste mínimo e deixa seus arquivos em `.reviveos/jobs/<id>` no host autorizado.
 
-## Otimização profunda (0.6.0)
+## Otimização profunda (0.7.0)
 
 O botão **OTIMIZAÇÃO PROFUNDA** prepara um plano real e permite selecionar alterações antes de executar. Suporta remover da inicialização por usuário OneDrive, Spotify, Discord, Steam e Epic Games sem desinstalar; pausar/desabilitar SysMain e Windows Search individualmente; e restaurar paginação gerenciada pelo sistema. Essas mudanças gravam snapshots, validam a leitura e oferecem restauração individual/completa. Serviços e paginação exigem executar o aplicativo como administrador. Paginação requer reboot tanto para efeito quanto para restauração completa.
 
@@ -107,3 +107,9 @@ Veja [componentes e operação](docs/HYBRID-COMPONENTS.md) e [o que ainda falta 
 ## Chrome local e híbrido (0.6)
 
 **CHROME BOOST** oferece políticas de memória/background com rollback, um perfil leve separado e medição de abertura até janela visível. Não apaga perfil/cache nem encerra Chrome para medir. A Central Híbrida inclui navegação web com alternativa remota experimental e consentimento para páginas públicas. Veja [condições, riscos e pesquisa](docs/CHROME-HYBRID.md). Rapidez no notebook não foi validada; navegador remoto não acelera diretamente o lançamento local.
+
+## Administrador e CPU (0.7)
+
+**CPU E ADMINISTRADOR** oferece inspeção de limites suportados e solicitação por UAC para ações reais. Um helper separado executa operações fixas, valida o mesmo usuário e encerra após responder. Ajustes profundos também pedem UAC quando necessário. `dotnet publish src/ReviveOS.Admin -c Release -r win-x64 --self-contained true -o publish/admin` deve ser executado antes de gerar o instalador; o workflow já faz isso.
+
+O ajuste de CPU é somente estado máximo AC de 100%, com snapshot e reversão. Não é overclock nem injeção/desbloqueio do processador. O procedimento de bypass alegado ainda não foi identificado; não foi implementado ou marcado como funcional. Leia [escopo e testes](docs/ADMIN-CPU.md).

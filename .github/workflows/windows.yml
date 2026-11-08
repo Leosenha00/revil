@@ -19,6 +19,10 @@ jobs:
       - run: dotnet test tests/ReviveOS.Tests -c Release --logger "trx;LogFileName=tests.trx"
       - run: dotnet list ReviveOS.sln package --vulnerable --include-transitive
       - run: dotnet publish src/ReviveOS.UI -c Release -r win-x64 --self-contained true -o publish
+      - run: dotnet publish src/ReviveOS.Admin -c Release -r win-x64 --self-contained true -o publish/admin
+      - name: Administrative helper smoke test
+        shell: powershell
+        run: ./scripts/admin-smoke.ps1
       - name: Windows inventory and WPF smoke test
         shell: powershell
         run: ./scripts/windows-smoke.ps1

@@ -1,0 +1,7 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  ReviveOS.Core -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/bin/Release/net8.0/ReviveOS.Core.dll
+  ReviveOS.WindowsOptimizer -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WindowsOptimizer/bin/Release/net8.0/ReviveOS.WindowsOptimizer.dll
+  ReviveOS.Security -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Security/bin/Release/net8.0/ReviveOS.Security.dll
+  ReviveOS.Admin -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Admin/bin/Release/net8.0-windows/win-x64/ReviveOS.Admin.dll
+  ReviveOS.Admin -> /workspace/ReviveOS-Hybrid-Extreme/publish/admin/

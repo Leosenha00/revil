@@ -45,3 +45,9 @@ Browser.lol: homepage e criação inspecionadas; Chrome apareceu sem login e uma
 Primeira execução Windows 0.6 (42495749135): 29 testes passaram, e o teste de janela real detectou a janela, mas falhou no teardown porque Chrome continuou ativo após CloseMainWindow. A limpeza foi corrigida para terminar somente a instância vazia e isolada criada pelo teste no runner, com timeout; a medição de produção não encerra processos. O teste será reexecutado antes da publicação.
 
 Tag v0.6.0 aprovada: https://github.com/Leosenha00/revil/actions/runs/42496224835. Os 30 testes passaram no Windows, incluindo uma janela Chrome real e roundtrip de política. Diagnóstico/WPF/instalação/execução instalada/desinstalação passaram. SHA-256 do instalador baixado conferido: 1627520bbd663bebc0d25a0843c736dbdcba6767501f69344551f4f047993319. Não houve medição de ganho no notebook, nem confirmação de sessão interativa Browser.lol.
+
+## 0.7.0
+
+Compilação cruzada da UI e do helper administrativo concluída. Local: 26 testes passaram e 7 exclusivos Windows foram ignorados (33 no total). Novos testes verificam allowlist e formato de IDs; no Windows, a escrita/reversão usa somente cópia inativa do plano de energia e confere preservação do ativo. O workflow compila o helper e testa execução com token já elevado e rejeição de outra conta quando o runner permite. O prompt UAC no notebook não é automatizado nem declarado validado.
+
+Nenhuma injeção de código/bypass universal foi implementada ou testada. O método alegado pelo usuário continua pendente de identificação. Nenhum desempenho do T4500 ou clock desbloqueado foi inventado.

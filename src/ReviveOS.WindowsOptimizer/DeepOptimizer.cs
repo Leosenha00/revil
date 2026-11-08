@@ -26,6 +26,7 @@ public sealed class DeepBackend:ISettingsBackend {
 public sealed class DeepOptimizer {
  readonly DeepBackend backend=new();readonly ChangeJournal journal=new(Path.Combine(State.Root,"deep-changes.json"),new DeepBackend());
  public bool HasPending=>journal.Entries().Any(x=>x.Status!="restored");
+ public bool HasAdministrativePending=>journal.Entries().Any(x=>x.Status!="restored"&&DeepPlan.Describe(x.Id).RequiresAdmin);
  public string History()=>JsonSerializer.Serialize(journal.Entries(),State.Json);
  public async Task<DeepInventory> Inventory()=>JsonSerializer.Deserialize<DeepInventory>(await DeepBackend.Execute("Inventory"),new JsonSerializerOptions{PropertyNameCaseInsensitive=true})??throw new IOException("Inventário inválido");
  public async Task Apply(IEnumerable<string> ids){var selected=ids.ToArray();foreach(var id in selected)_=DeepPlan.Describe(id);if(selected.Any(id=>DeepPlan.Describe(id).RequiresAdmin))await Commands.CheckedPowerShell("$p=New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent()); if(!$p.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)){throw 'Abra o ReviveOS como administrador para serviços e paginação; nenhuma alteração foi iniciada'}");foreach(var id in selected){_ =DeepPlan.Describe(id);var before=await backend.Read(id)??throw new IOException("Snapshot ausente");await journal.Apply(id,DeepBackend.DisabledAfter(id,before));}}

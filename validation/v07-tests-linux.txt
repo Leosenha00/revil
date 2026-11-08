@@ -1,0 +1,39 @@
+  Determining projects to restore...
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.CloudEngine/ReviveOS.CloudEngine.csproj (in 90 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/ReviveOS.Core.csproj (in 90 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/ReviveOS.Backup.csproj (in 2 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Browser/ReviveOS.Browser.csproj (in 2 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WindowsOptimizer/ReviveOS.WindowsOptimizer.csproj (in 0.8 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Security/ReviveOS.Security.csproj (in 0.8 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/ReviveOS.HybridScheduler.csproj (in 0.9 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/ReviveOS.Tests.csproj (in 127 ms).
+  ReviveOS.Core -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/bin/Release/net8.0/ReviveOS.Core.dll
+  ReviveOS.HybridScheduler -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/bin/Release/net8.0/ReviveOS.HybridScheduler.dll
+  ReviveOS.Browser -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Browser/bin/Release/net8.0/ReviveOS.Browser.dll
+  ReviveOS.WindowsOptimizer -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WindowsOptimizer/bin/Release/net8.0/ReviveOS.WindowsOptimizer.dll
+  ReviveOS.Security -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Security/bin/Release/net8.0/ReviveOS.Security.dll
+  ReviveOS.CloudEngine -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.CloudEngine/bin/Release/net8.0/ReviveOS.CloudEngine.dll
+  ReviveOS.Backup -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/bin/Release/net8.0/ReviveOS.Backup.dll
+  ReviveOS.Tests -> /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll
+Test run for /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll (.NETCoreApp,Version=v8.0)
+VSTest version 17.11.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.50]     ChromeTests.RealChromeWindowProducesBoundedMeasurement [SKIP]
+[xUnit.net 00:00:00.51]     ChromeTests.PolicyRoundtripPreservesNeighbours [SKIP]
+  Skipped ChromeTests.RealChromeWindowProducesBoundedMeasurement [1 ms]
+  Skipped ChromeTests.PolicyRoundtripPreservesNeighbours [1 ms]
+[xUnit.net 00:00:00.72]     DeepTests.StartupRoundtripPreservesCommandAndOtherValues [SKIP]
+[xUnit.net 00:00:00.72]     DeepTests.OptionalServicesAndPagefileCanBeInspectedWithoutMutation [SKIP]
+  Skipped DeepTests.StartupRoundtripPreservesCommandAndOtherValues [1 ms]
+  Skipped DeepTests.OptionalServicesAndPagefileCanBeInspectedWithoutMutation [1 ms]
+[xUnit.net 00:00:00.72]     WindowsSettingsTests.ActivePowerPlanHasRestorableGuid [SKIP]
+[xUnit.net 00:00:00.72]     WindowsSettingsTests.ExistingRegistryValuesSurviveApplyAndRestore [SKIP]
+  Skipped WindowsSettingsTests.ActivePowerPlanHasRestorableGuid [1 ms]
+  Skipped WindowsSettingsTests.ExistingRegistryValuesSurviveApplyAndRestore [1 ms]
+[xUnit.net 00:00:01.49]     AdminCpuTests.CpuLimitRoundtripUsesOnlyAnInactiveTestScheme [SKIP]
+  Skipped AdminCpuTests.CpuLimitRoundtripUsesOnlyAnInactiveTestScheme [1 ms]
+Results File: /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/TestResults/v07.trx
+
+Passed!  - Failed:     0, Passed:    26, Skipped:     7, Total:    33, Duration: 1 s - ReviveOS.Tests.dll (net8.0)
