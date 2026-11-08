@@ -33,3 +33,5 @@ Tag v0.4.0 aprovada: https://github.com/Leosenha00/revil/actions/runs/4249304309
 Local: 21 testes passaram; 4 testes Windows foram ignorados no Linux. Cinco testes novos verificam privacidade, exigência de benefício Web e autorização, ausência de host fictício, bloqueio de tarefas pesadas em serviços anônimos e uso de ferramentas compatíveis. Compilação cruzada WPF concluída. O workflow Windows executa os 25 testes e valida instalação/janela/desinstalação.
 
 SageMathCell: cálculo remoto real sem login, factor(84) retornou 2^2 * 3 * 7. Evidência em validation/v05-sage-live-test.json. AutoCAD Web: documentação e abertura oficial integradas; acesso da conta do usuário e desenho real não testados. Nenhuma alegação de ganho no notebook é feita.
+
+Tag v0.5.0 aprovada: https://github.com/Leosenha00/revil/actions/runs/42494281729. Os 25 testes passaram no Windows. Diagnóstico, janela WPF, instalação, execução instalada e desinstalação passaram. Instalador baixado e SHA-256 confirmado: 001dd8066937ad10350e1319f963239a8f7c5d38138d88cfccee9d1c7a97425b. Os fluxos com licença/desenho Autodesk e desempenho no notebook continuam pendentes.
