@@ -6,6 +6,6 @@
     "os": "Linux",
     "result": 49995000
   },
-  "kernel_deleted": true,
-  "no_performance_gain_measured": true
+  "no_performance_gain_measured": true,
+  "kernel_delete_requested": true
 }

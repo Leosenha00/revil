@@ -22,6 +22,8 @@ Verificação concluída da tag v0.3.0: https://github.com/Leosenha00/revil/acti
 
 ## 0.4.0 — opção sem login
 
-Uma sessão real mybinder.org iniciou sem conta/cartão/login. Kernel Python no host hub.bids.mybinder.org executou soma conhecida, retornando Linux e 49995000; kernel excluído e token temporário removido. Evidência em validation/v04-binder-live-test.json, sem token ou URL privada da sessão. Não foi medido ganho de desempenho. A sessão não foi usada como backend contínuo.
+Uma sessão real mybinder.org iniciou sem conta/cartão/login. Kernel Python no host hub.bids.mybinder.org executou soma conhecida, retornando Linux e 49995000; pedido de exclusão do kernel enviado e token temporário removido. Evidência em validation/v04-binder-live-test.json, sem token ou URL privada da sessão. Não foi medido ganho de desempenho. A sessão não foi usada como backend contínuo.
 
 Local: 16 testes passaram; quatro testes exclusivos de Windows foram ignorados no Linux. Novos testes executam todas as células do notebook com CSV/DXF de exemplo, conferem exportação e SHA-256 e impedem sobrescrita de arquivo ao salvar notebook. O teste de notebook é separado do teste remoto e não equivale a benchmark remoto de DXF/AutoCAD. Workflow Windows executa os 20 testes, compila e valida instalação.
+
+Tag v0.4.0 aprovada: https://github.com/Leosenha00/revil/actions/runs/42493043094. Os 20 testes passaram no Windows; diagnóstico, janela WPF, instalação, execução instalada e desinstalação passaram. Instalador baixado e SHA-256 verificado: 593d2724c82a76bb4d2e1e8b7fcb8ca00169907df6cd490360303fb89768ea49.
