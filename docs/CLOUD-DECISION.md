@@ -1,5 +1,7 @@
 # Escolha de nuvem — verificação em 08/11/2026
 
+Atualização 0.4: para o requisito sem cadastro/login, a opção padrão passa a ser Binder interativo e temporário; veja NO-LOGIN-CLOUD.md. Oracle permanece somente como alternativa opcional com conta, sem provisionamento.
+
 Escolha técnica para tarefas Linux: Oracle Cloud Infrastructure Always Free, shape Ampere A1, por SSH. É um candidato condicionado à elegibilidade da conta, não uma VM já disponível. Nenhuma conta foi criada e nenhum recurso foi provisionado nesta sessão.
 
 ## Comparação

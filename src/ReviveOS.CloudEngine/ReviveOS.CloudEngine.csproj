@@ -1,1 +1,1 @@
-<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><ProjectReference Include="../ReviveOS.Core/ReviveOS.Core.csproj" /></ItemGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><ProjectReference Include="../ReviveOS.Core/ReviveOS.Core.csproj" /></ItemGroup><ItemGroup><EmbeddedResource Include="../../cloud/no-login/ReviveOS-Interativo.ipynb" LogicalName="anonymous.ipynb"/></ItemGroup></Project>
