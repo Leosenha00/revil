@@ -1,4 +1,4 @@
-# Cobertura real dos requisitos — 0.6
+# Cobertura real dos requisitos — 0.7
 
 Nenhum conjunto de sites significa que todos os requisitos foram atendidos. Esta matriz mantém a diferença entre código implementado e validação no equipamento. Os testes citados são de runner Windows ou de serviços com exemplos, não benchmarks do notebook.
 
@@ -7,7 +7,7 @@ Nenhum conjunto de sites significa que todos os requisitos foram atendidos. Esta
 | 1 Diagnóstico | CIM, hardware, processos, rede e armazenamento; runner testado | Coletar e interpretar o notebook real; temperatura quando disponível |
 | 2 App/instalador | WPF e instalador com .NET incluído; instalação/abertura/desinstalação testadas no runner | Teste no Windows 11 do notebook |
 | 3 Wi-Fi Auto Start | WLAN oficial, tarefa opt-in no login, tentativas limitadas e rollback | Identificar bloqueio Fn/OEM; reboot, partida a frio e suspensão reais |
-| 4 Windows optimizer | Inicialização de lista opcional, SysMain/WSearch selecionados, paginação, visual/energia, snapshots e reversão | Efeitos, regressões e ajustes administrativos completos no notebook; não há otimização total de todo serviço/driver |
+| 4 Windows optimizer | UAC por helper, teto AC nominal com reversão, inicialização de lista opcional, SysMain/WSearch selecionados, paginação, visual/energia, snapshots e reversão | Efeitos, regressões e ajustes administrativos completos no notebook; não há otimização total de todo serviço/driver |
 | 5 Processos | Lista, RAM, classificação heurística e fechamento cooperativo autorizado | CPU/I/O contínuos por processo, suspensão compatível e classificação ampliada |
 | 6 Turbo | Manual e monitor por aplicativo; ajustes reversíveis | Monitor térmico confiável e ganhos reais; nem todo perfil tem ajustes próprios completos |
 | 7 GitHub/Codespaces | Actions compila/testa/publica; devcontainer incluído | Uso do Codespace na conta e verificação de cota; não é desktop CAD |

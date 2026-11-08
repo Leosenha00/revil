@@ -1,0 +1,3 @@
+PASS: helper ran with existing elevated token and returned a structured response. Interactive UAC consent is not tested here.
+PASS: helper rejected a different user SID before any operation.
+PASS: read-only CPU/RAM/pagefile/GPU inspection returned a report; optional query errors are reported separately.
