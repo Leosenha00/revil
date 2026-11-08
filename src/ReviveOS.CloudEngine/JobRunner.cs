@@ -26,15 +26,15 @@ public sealed class JobRunner(string root) {
     if(sshAlias==null) await Execute(command,arguments);
     else {
      job=job with{State="uploading"};Save(job);
-     string[] ssh=["-o","BatchMode=yes","-o","StrictHostKeyChecking=yes","-o","ConnectTimeout=10",sshAlias];
+     string[] ssh=["-o","ServerAliveInterval=15","-o","ServerAliveCountMax=2","-o","ConnectTimeout=10","-o","BatchMode=yes","-o","StrictHostKeyChecking=yes","-o","ConnectTimeout=10",sshAlias];
      await Execute("ssh",ssh.Concat(["mkdir -p "+remote]));
-     await Execute("scp",new[]{"-o","BatchMode=yes","-o","StrictHostKeyChecking=yes",staged,sshAlias+":"+remote+"/"+inputName});
+     await Execute("scp",new[]{"-o","ServerAliveInterval=15","-o","ServerAliveCountMax=2","-o","ConnectTimeout=10","-o","BatchMode=yes","-o","StrictHostKeyChecking=yes",staged,sshAlias+":"+remote+"/"+inputName});
      job=job with{State="running"};Save(job);
      // All remote shell words below are constants, generated identifiers or validated aliases.
      await Execute("ssh",ssh.Concat(["cd "+remote+" && "+(kind=="python"?"python3":kind)+" "+string.Join(' ',arguments)]));
      job=job with{State="downloading"};Save(job);
      var remoteFile=kind=="blender"?"result0001.png":resultName;
-     await Execute("scp",new[]{"-o","BatchMode=yes","-o","StrictHostKeyChecking=yes",sshAlias+":"+remote+"/"+remoteFile,Path.Combine(dir,resultName+".partial")});
+     await Execute("scp",new[]{"-o","ServerAliveInterval=15","-o","ServerAliveCountMax=2","-o","ConnectTimeout=10","-o","BatchMode=yes","-o","StrictHostKeyChecking=yes",sshAlias+":"+remote+"/"+remoteFile,Path.Combine(dir,resultName+".partial")});
      await Execute("ssh",ssh.Concat(["cd "+remote+" && sha256sum "+remoteFile]));
      // Obtain checksum separately for strict parsing, leaving a trace in the session log.
      var checksum=await Commands.Run("ssh",ssh.Concat(["cd "+remote+" && sha256sum "+remoteFile]),ct);if(checksum.ExitCode!=0)throw new IOException(checksum.Error);
@@ -51,8 +51,8 @@ public sealed class JobRunner(string root) {
    var job=History().Single(x=>x.Id==id);var host=job.RemoteHost;if(job.Mode!="REMOTE"||host==null||!Regex.IsMatch(host,@"\A[a-zA-Z0-9][a-zA-Z0-9._-]{0,63}\z"))throw new IOException("Host inválido");
    var remote=".reviveos/jobs/"+id;var file=job.Kind switch{"python"=>"result.json","ffmpeg"=>"result.mp4","blender"=>"result0001.png",_=>throw new IOException("Adaptador desconhecido")};var dir=Path.GetFullPath(Path.Combine(root,id));var destination=Path.Combine(dir,file);if(File.Exists(destination))throw new IOException("Resultado local já existe; consulte histórico");
    // Only retrieve a confirmed file. No execution or resume of the original process.
-   var before=await Commands.Run("ssh",["-o","BatchMode=yes","-o","StrictHostKeyChecking=yes","-o","ConnectTimeout=10",host,"cd "+remote+" && sha256sum "+file],ct);if(before.ExitCode!=0)throw new IOException(before.Error);
-   await ExecuteLogged("scp",["-o","BatchMode=yes","-o","StrictHostKeyChecking=yes",host+":"+remote+"/"+file,destination+".partial"],dir,Path.Combine(dir,"recovery.log"),ct);
+   var before=await Commands.Run("ssh",["-o","ServerAliveInterval=15","-o","ServerAliveCountMax=2","-o","ConnectTimeout=10","-o","BatchMode=yes","-o","StrictHostKeyChecking=yes","-o","ConnectTimeout=10",host,"cd "+remote+" && sha256sum "+file],ct);if(before.ExitCode!=0)throw new IOException(before.Error);
+   await ExecuteLogged("scp",["-o","ServerAliveInterval=15","-o","ServerAliveCountMax=2","-o","ConnectTimeout=10","-o","BatchMode=yes","-o","StrictHostKeyChecking=yes",host+":"+remote+"/"+file,destination+".partial"],dir,Path.Combine(dir,"recovery.log"),ct);
    var expected=before.Output.Split(' ',StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();if(!string.Equals(expected,Hash(destination+".partial"),StringComparison.OrdinalIgnoreCase))throw new IOException("Resultado mudou ou checksum divergiu; aguarde término do processo remoto");
    File.Move(destination+".partial",destination);State.Save(Path.Combine(dir,"result.sha256.json"),new{Sha256=Hash(destination)});job=job with{State="recovered-file",Result=destination,Error=null};Save(job);return job;
   }finally{gate.Release();}

@@ -1,6 +1,6 @@
 # Verificação 0.2.0
 
-Linux x64, SDK 8.0.427: compilação cruzada WPF Windows x64 concluída. Dez testes passaram: custo de transferência, bloqueio remoto sem autorização, seleção remota compatível, backup/versionamento/corrupção, diário com escrita interrompida e recuperação em nova instância, restauração continua após falha e permite retentativa, preservação do backup contra reaplicação, Python local com resultado verificável e falha registrada, consentimento e validação de alias SSH, recuperação conservadora de sessão interrompida.
+Linux x64, SDK 8.0.427: compilação cruzada WPF Windows x64 concluída. Onze testes passaram: custo de transferência, bloqueio remoto sem autorização, seleção remota compatível, backup/versionamento/corrupção, diário com escrita interrompida e recuperação em nova instância, restauração continua após falha e permite retentativa, preservação do backup contra reaplicação, Python local com resultado verificável e falha registrada, consentimento e validação de alias SSH, recuperação conservadora de sessão interrompida.
 
 O workflow testa adicionalmente o coletor CIM e abertura/fechamento de uma janela WPF no runner Windows. Consulte o resultado do commit na aba Actions antes de considerar esse teste aprovado. Logs de execução estão em validation/v02-* e no artefato Actions.
 
