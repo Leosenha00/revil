@@ -1,7 +1,7 @@
 [Setup]
 AppId=ReviveOSHybridExtreme
 AppName=ReviveOS Hybrid Extreme
-AppVersion=0.5.0
+AppVersion=0.6.0
 DefaultDirName={localappdata}\Programs\ReviveOS
 PrivilegesRequired=lowest
 OutputDir=..\artifacts

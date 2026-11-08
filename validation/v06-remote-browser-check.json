@@ -1,0 +1,10 @@
+{
+  "provider": "https://browser.lol/en/create",
+  "anonymous_launch_ui_observed": true,
+  "chrome_choice_without_signin_observed": true,
+  "launch_requested": true,
+  "interactive_session_confirmed": false,
+  "last_observed_state": "Requesting a session",
+  "personal_profile_or_credentials_uploaded": false,
+  "speed_gain_measured": false
+}

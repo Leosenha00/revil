@@ -35,3 +35,9 @@ Local: 21 testes passaram; 4 testes Windows foram ignorados no Linux. Cinco test
 SageMathCell: cálculo remoto real sem login, factor(84) retornou 2^2 * 3 * 7. Evidência em validation/v05-sage-live-test.json. AutoCAD Web: documentação e abertura oficial integradas; acesso da conta do usuário e desenho real não testados. Nenhuma alegação de ganho no notebook é feita.
 
 Tag v0.5.0 aprovada: https://github.com/Leosenha00/revil/actions/runs/42494281729. Os 25 testes passaram no Windows. Diagnóstico, janela WPF, instalação, execução instalada e desinstalação passaram. Instalador baixado e SHA-256 confirmado: 001dd8066937ad10350e1319f963239a8f7c5d38138d88cfccee9d1c7a97425b. Os fluxos com licença/desenho Autodesk e desempenho no notebook continuam pendentes.
+
+## 0.6.0
+
+Testes novos: catálogo restrito de políticas sem desativar proteção; argumentos de perfil separado; reversão de política preservando valores vizinhos; medição de uma janela Chrome real no runner Windows; roteamento remoto somente com consentimento e dados públicos. Testes Windows não rodam no Linux e são explicitamente ignorados nesse ambiente. A aceitação das políticas pelo Chrome do notebook e o ganho real ainda não foram validados.
+
+Browser.lol: homepage e criação inspecionadas; Chrome apareceu sem login e uma solicitação chegou a Requesting a session. A sessão interativa não foi confirmada e não é marcada como testada/funcional. Não houve reinício de sessão para contornar quotas, nem envio de dados pessoais.

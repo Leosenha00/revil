@@ -6,7 +6,7 @@ using ReviveOS.WindowsOptimizer;
 using ReviveOS.Backup;
 namespace ReviveOS.UI;
 public partial class MainWindow:Window {
- readonly Optimizer optimizer=new();readonly DeepOptimizer deep=new();bool busy;bool auto;
+ readonly Optimizer optimizer=new();readonly DeepOptimizer deep=new();readonly ReviveOS.Browser.ChromeOptimizer chrome=new();bool busy;bool auto;
  readonly System.Windows.Threading.DispatcherTimer monitor=new(){Interval=TimeSpan.FromSeconds(5)};
  readonly ReviveOS.CloudEngine.JobRunner jobs=new(Path.Combine(State.Root,"jobs"));
  CancellationTokenSource? jobCancellation;
@@ -15,12 +15,12 @@ public partial class MainWindow:Window {
  readonly System.Windows.Threading.DispatcherTimer backupTimer=new(){Interval=TimeSpan.FromSeconds(60)};
 
 
- public MainWindow(){InitializeComponent();try{jobs.RecoverInterrupted();}catch(Exception ex){Status.Text="Histórico de tarefas inválido: "+ex.Message;}monitor.Tick+=MonitorTick;backupTimer.Tick+=BackupTick;Closing+=OnClosing;Output.Text=ReviveOS.TurboEngine.Turbo.Status+"\n\n"+ReviveOS.WiFiManager.Wifi.Status;try{if(optimizer.HasPending||deep.HasPending)Status.Text="Há ajustes pendentes de sessão anterior. Use DESATIVAR E RESTAURAR antes de aplicar novamente.";}catch(Exception ex){Status.Text="Diário inválido; ajustes bloqueados: "+ex.Message;}}
+ public MainWindow(){InitializeComponent();try{jobs.RecoverInterrupted();}catch(Exception ex){Status.Text="Histórico de tarefas inválido: "+ex.Message;}monitor.Tick+=MonitorTick;backupTimer.Tick+=BackupTick;Closing+=OnClosing;Output.Text=ReviveOS.TurboEngine.Turbo.Status+"\n\n"+ReviveOS.WiFiManager.Wifi.Status;try{if(optimizer.HasPending||deep.HasPending||chrome.HasPending)Status.Text="Há ajustes pendentes de sessão anterior. Use DESATIVAR E RESTAURAR antes de aplicar novamente.";}catch(Exception ex){Status.Text="Diário inválido; ajustes bloqueados: "+ex.Message;}}
  async Task Run(Func<Task<string>> action){if(busy)return;busy=true;Status.Text="Em execução…";try{Output.Text=await action();Status.Text="Concluído. "+State.Root;}catch(Exception e){Status.Text="Falha; detalhes abaixo. Alterações pendentes podem ser restauradas.";Output.Text=e.ToString();}finally{busy=false;}}
  async void Diagnose(object s,RoutedEventArgs e)=>await Run(()=>new ReviveOS.Diagnostics.DiagnosticCollector().Collect());
  async void Simulate(object s,RoutedEventArgs e)=>await Run(async()=>await optimizer.Apply("visual")+"\n"+await optimizer.Apply("power"));
  async void Activate(object s,RoutedEventArgs e){if(busy||auto)return;if(MessageBox.Show("Aplicar redução de animações e plano Alto Desempenho? Pode aumentar calor e consumo. O plano pode não existir. Um diário permitirá restaurar inclusive após falha. Efeitos visuais podem exigir novo login.","Confirmar ajustes",MessageBoxButton.YesNo)!=MessageBoxResult.Yes)return;await Run(async()=>{try{return await optimizer.Apply("visual",false)+"\n"+await optimizer.Apply("power",false);}catch{await optimizer.Restore();throw;}});}
- async void Restore(object s,RoutedEventArgs e)=>await Run(async()=>{auto=false;monitor.Stop();autoApplied=false;var errors=new List<Exception>();try{await optimizer.Restore();}catch(Exception ex){errors.Add(ex);}try{await deep.Restore();}catch(Exception ex){errors.Add(ex);}if(errors.Count>0)throw new AggregateException(errors);return "Configurações registradas restauradas e verificadas.";});
+ async void Restore(object s,RoutedEventArgs e)=>await Run(async()=>{auto=false;monitor.Stop();autoApplied=false;var errors=new List<Exception>();try{await optimizer.Restore();}catch(Exception ex){errors.Add(ex);}try{await deep.Restore();}catch(Exception ex){errors.Add(ex);}try{await chrome.Restore();}catch(Exception ex){errors.Add(ex);}try{await ReviveOS.Browser.ChromeShortcut.Restore();}catch(Exception ex){errors.Add(ex);}if(errors.Count>0)throw new AggregateException(errors);return "Configurações registradas restauradas e verificadas. Perfis Chrome preservados.";});
  async void WifiClick(object s,RoutedEventArgs e)=>await Run(async()=>ReviveOS.WiFiManager.Wifi.Status+"\n"+await ReviveOS.WiFiManager.Wifi.Inspect());
  async void ProcessClick(object s,RoutedEventArgs e)=>await Run(()=>Task.FromResult(JsonSerializer.Serialize(ReviveOS.ProcessManager.Processes.Snapshot(),State.Json)));
  void CloudClick(object s,RoutedEventArgs e){if(busy)return;Output.Text=JsonSerializer.Serialize(ReviveOS.CloudEngine.Providers.Catalog,State.Json)+"\n"+ReviveOS.AutoCAD.AutoCad.Guidance;}
@@ -39,7 +39,7 @@ public partial class MainWindow:Window {
  }
  async void MonitorTick(object? sender,EventArgs e){if(busy||!auto)return;var profile=ReviveOS.TurboEngine.AppProfiles.Foreground();if(profile!=null&&!autoApplied){await Run(async()=>{autoApplied=true;try{await optimizer.Apply("visual",false);await optimizer.Apply("transparency",false);}catch{monitor.Stop();auto=false;await optimizer.Restore();autoApplied=false;throw;}return "Perfil detectado: "+profile.Profile+"; animações e transparência reduzidas.";});}else if(profile==null&&autoApplied){await Run(async()=>{await optimizer.Restore();autoApplied=false;return "Aplicativo em primeiro plano sem perfil; configurações restauradas.";});}}
  async void OnClosing(object? sender,System.ComponentModel.CancelEventArgs e){if(busy){e.Cancel=true;Status.Text="Aguarde a operação ou cancele a tarefa antes de fechar.";return;}if(autoApplied){e.Cancel=true;monitor.Stop();auto=false;await Run(async()=>{await optimizer.Restore();autoApplied=false;return "Restaurado.";});if(!autoApplied)Close();}}
- async void HistoryClick(object s,RoutedEventArgs e)=>await Run(()=>Task.FromResult(optimizer.History()+"\n"+deep.History()+"\n"+JsonSerializer.Serialize(jobs.History(),State.Json)));
+ async void HistoryClick(object s,RoutedEventArgs e)=>await Run(()=>Task.FromResult(optimizer.History()+"\n"+deep.History()+"\n"+chrome.History()+"\n"+JsonSerializer.Serialize(jobs.History(),State.Json)));
  void CancelClick(object s,RoutedEventArgs e)=>jobCancellation?.Cancel();
  async void JobClick(object s,RoutedEventArgs e)=>await StartJob(null);
  async void SshClick(object s,RoutedEventArgs e){if(busy)return;var dialog=new SshDialog{Owner=this};if(dialog.ShowDialog()==true)await StartJob(dialog.Alias);}
@@ -56,6 +56,7 @@ public partial class MainWindow:Window {
  void RdpClick(object s,RoutedEventArgs e){if(busy)return;var dialog=new SshDialog{Owner=this,Title="Host Windows RDP autorizado (nome ou IPv4)"};if(dialog.ShowDialog()!=true)return;if(MessageBox.Show("Abrir cliente RDP para "+dialog.Alias+"? Confirme que você tem autorização. A licença do Windows remoto deve suportar RDP; nenhuma máquina é fornecida pelo ReviveOS.","RDP",MessageBoxButton.YesNo)!=MessageBoxResult.Yes)return;try{ReviveOS.RemoteApps.RemoteDesktop.OpenRdp(dialog.Alias,true);}catch(Exception ex){Status.Text=ex.Message;}}
  void DeepClick(object s,RoutedEventArgs e){if(!busy&&!auto)new DeepDialog(deep){Owner=this}.ShowDialog();}
  void AnonymousClick(object s,RoutedEventArgs e){if(!busy)new AnonymousCloudDialog{Owner=this}.ShowDialog();}
- void HybridHubClick(object s,RoutedEventArgs e){if(busy||auto)return;new HybridHubDialog(kind=>StartJob(null,JobKind(kind)),async kind=>{var d=new SshDialog{Owner=this};if(d.ShowDialog()==true)await StartJob(d.Alias,JobKind(kind));},()=>RdpClick(this,new RoutedEventArgs()),()=>DeepClick(this,new RoutedEventArgs()),()=>{jobCancellation?.Cancel();}){Owner=this}.ShowDialog();}
+ void HybridHubClick(object s,RoutedEventArgs e){if(busy||auto)return;new HybridHubDialog(kind=>StartJob(null,JobKind(kind)),async kind=>{var d=new SshDialog{Owner=this};if(d.ShowDialog()==true)await StartJob(d.Alias,JobKind(kind));},()=>RdpClick(this,new RoutedEventArgs()),()=>DeepClick(this,new RoutedEventArgs()),()=>ChromeBoostClick(this,new RoutedEventArgs()),()=>{jobCancellation?.Cancel();}){Owner=this}.ShowDialog();}
  static string JobKind(ReviveOS.HybridScheduler.TaskKind kind)=>kind switch{ReviveOS.HybridScheduler.TaskKind.VideoConversion=>"ffmpeg",ReviveOS.HybridScheduler.TaskKind.BlenderRendering=>"blender",_=>"python"};
+ void ChromeBoostClick(object s,RoutedEventArgs e){if(!busy&&!auto)new ChromeBoostDialog(chrome){Owner=this}.ShowDialog();}
 }

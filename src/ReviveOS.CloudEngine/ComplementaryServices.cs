@@ -2,11 +2,12 @@ using System.Diagnostics;
 using ReviveOS.Core;
 namespace ReviveOS.CloudEngine;
 public static class ComplementaryServices {
+ public const string RemoteBrowserUrl="https://browser.lol/en/create";
  public const string SageCellUrl="https://sagecell.sagemath.org/";
  public const string AutoCadWebUrl="https://web.autocad.com/";
  public const string AutodeskProductsUrl="https://manage.autodesk.com/products";
  public const string SageExample="var('x')\nprint(solve(x^2 == 1, x))\nprint(factor(84))\n";
- public static void Open(string engine){var url=engine switch{"SAGECELL"=>SageCellUrl,"AUTOCAD_WEB"=>AutoCadWebUrl,"AUTODESK_PRODUCTS"=>AutodeskProductsUrl,"BINDER"=>AnonymousNotebook.BinderUrl,_=>throw new ArgumentException("Serviço não permitido")};Process.Start(new ProcessStartInfo(url){UseShellExecute=true});}
+ public static void Open(string engine){var url=engine switch{"REMOTE_BROWSER"=>RemoteBrowserUrl,"SAGECELL"=>SageCellUrl,"AUTOCAD_WEB"=>AutoCadWebUrl,"AUTODESK_PRODUCTS"=>AutodeskProductsUrl,"BINDER"=>AnonymousNotebook.BinderUrl,_=>throw new ArgumentException("Serviço não permitido")};Process.Start(new ProcessStartInfo(url){UseShellExecute=true});}
 }
 public record LocalTools(string? Python,string? FFmpeg,string? Blender,bool Sympy);
 public static class ToolProbe {
