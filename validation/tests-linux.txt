@@ -1,0 +1,17 @@
+  Determining projects to restore...
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/ReviveOS.Core.csproj (in 119 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/ReviveOS.Backup.csproj (in 159 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/ReviveOS.HybridScheduler.csproj (in 2 ms).
+  1 of 4 projects are up-to-date for restore.
+  ReviveOS.Core -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/bin/Release/net8.0/ReviveOS.Core.dll
+  ReviveOS.Backup -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/bin/Release/net8.0/ReviveOS.Backup.dll
+  ReviveOS.HybridScheduler -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/bin/Release/net8.0/ReviveOS.HybridScheduler.dll
+  ReviveOS.Tests -> /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll
+Test run for /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll (.NETCoreApp,Version=v8.0)
+VSTest version 17.11.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+Results File: /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/TestResults/tests.trx
+
+Passed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 193 ms - ReviveOS.Tests.dll (net8.0)

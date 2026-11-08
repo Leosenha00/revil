@@ -1,0 +1,19 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  ReviveOS.Core -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/bin/Release/net8.0/ReviveOS.Core.dll
+  ReviveOS.ProcessManager -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.ProcessManager/bin/Release/net8.0/ReviveOS.ProcessManager.dll
+  ReviveOS.HybridScheduler -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/bin/Release/net8.0/ReviveOS.HybridScheduler.dll
+  ReviveOS.WiFiManager -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WiFiManager/bin/Release/net8.0/ReviveOS.WiFiManager.dll
+  ReviveOS.Backup -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/bin/Release/net8.0/ReviveOS.Backup.dll
+  ReviveOS.RemoteApps -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.RemoteApps/bin/Release/net8.0/ReviveOS.RemoteApps.dll
+  ReviveOS.TurboEngine -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.TurboEngine/bin/Release/net8.0/ReviveOS.TurboEngine.dll
+  ReviveOS.Multimedia -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Multimedia/bin/Release/net8.0/ReviveOS.Multimedia.dll
+  ReviveOS.WindowsOptimizer -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WindowsOptimizer/bin/Release/net8.0/ReviveOS.WindowsOptimizer.dll
+  ReviveOS.Diagnostics -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Diagnostics/bin/Release/net8.0/ReviveOS.Diagnostics.dll
+  ReviveOS.Recovery -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Recovery/bin/Release/net8.0/ReviveOS.Recovery.dll
+  ReviveOS.Browser -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Browser/bin/Release/net8.0/ReviveOS.Browser.dll
+  ReviveOS.CloudEngine -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.CloudEngine/bin/Release/net8.0/ReviveOS.CloudEngine.dll
+  ReviveOS.AutoCAD -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.AutoCAD/bin/Release/net8.0/ReviveOS.AutoCAD.dll
+  ReviveOS.Security -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Security/bin/Release/net8.0/ReviveOS.Security.dll
+  ReviveOS.UI -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.UI/bin/Release/net8.0-windows/win-x64/ReviveOS.dll
+  ReviveOS.UI -> /workspace/ReviveOS-Hybrid-Extreme/publish/

@@ -1,0 +1,21 @@
+
+The following sources were used:
+   https://api.nuget.org/v3/index.json
+
+The given project `ReviveOS.AutoCAD` has no vulnerable packages given the current sources.
+The given project `ReviveOS.Backup` has no vulnerable packages given the current sources.
+The given project `ReviveOS.Browser` has no vulnerable packages given the current sources.
+The given project `ReviveOS.CloudEngine` has no vulnerable packages given the current sources.
+The given project `ReviveOS.Core` has no vulnerable packages given the current sources.
+The given project `ReviveOS.Diagnostics` has no vulnerable packages given the current sources.
+The given project `ReviveOS.HybridScheduler` has no vulnerable packages given the current sources.
+The given project `ReviveOS.Multimedia` has no vulnerable packages given the current sources.
+The given project `ReviveOS.ProcessManager` has no vulnerable packages given the current sources.
+The given project `ReviveOS.Recovery` has no vulnerable packages given the current sources.
+The given project `ReviveOS.RemoteApps` has no vulnerable packages given the current sources.
+The given project `ReviveOS.Security` has no vulnerable packages given the current sources.
+The given project `ReviveOS.TurboEngine` has no vulnerable packages given the current sources.
+The given project `ReviveOS.UI` has no vulnerable packages given the current sources.
+The given project `ReviveOS.WiFiManager` has no vulnerable packages given the current sources.
+The given project `ReviveOS.WindowsOptimizer` has no vulnerable packages given the current sources.
+The given project `ReviveOS.Tests` has no vulnerable packages given the current sources.

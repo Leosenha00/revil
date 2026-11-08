@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="c81b6cd9-b697-45a8-9dd9-76d78bdeb9a0" name="@e2f76121663c 2026-11-08 12:08:12" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-11-08T12:08:12.1938093+00:00" queuing="2026-11-08T12:08:12.1938094+00:00" start="2026-11-08T12:08:10.3218741+00:00" finish="2026-11-08T12:08:12.2128749+00:00" />
+  <TestSettings name="default" id="0a41f4c3-683c-4a85-bd5b-c5b775f23e83">
+    <Deployment runDeploymentRoot="_e2f76121663c_2026-11-08_12_08_12" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="feff40d1-832b-428a-a23b-3533a2d1082f" testId="aaf7137b-e3de-bf27-c7d5-af200cb0599f" testName="Tests.UploadCostCanRejectRemote" computerName="e2f76121663c" duration="00:00:00.0000374" startTime="2026-11-08T12:08:11.8969823+00:00" endTime="2026-11-08T12:08:11.8969823+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="feff40d1-832b-428a-a23b-3533a2d1082f" />
+    <UnitTestResult executionId="d332800f-97dc-40ff-bf48-7efbdf8633c3" testId="a36a32a4-2e6d-ddf4-fdfa-572a8cf32843" testName="Tests.BackupRestoresAndDetectsCorruption" computerName="e2f76121663c" duration="00:00:00.1701523" startTime="2026-11-08T12:08:11.8966946+00:00" endTime="2026-11-08T12:08:11.8966947+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d332800f-97dc-40ff-bf48-7efbdf8633c3" />
+    <UnitTestResult executionId="5d061cec-021d-46de-bb0c-71d01f09ea45" testId="25fac6f4-16c3-d21d-21f7-e3637c72802b" testName="Tests.CompatibleFastRemoteSelected" computerName="e2f76121663c" duration="00:00:00.0001129" startTime="2026-11-08T12:08:11.8969538+00:00" endTime="2026-11-08T12:08:11.8969538+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5d061cec-021d-46de-bb0c-71d01f09ea45" />
+    <UnitTestResult executionId="9953c1f5-c191-4d1a-8f75-56d7eafff8a1" testId="63403dde-a0c8-c023-7d73-e11c1c816ba6" testName="Tests.UnauthorizedNeverUploads" computerName="e2f76121663c" duration="00:00:00.0082753" startTime="2026-11-08T12:08:11.7035117+00:00" endTime="2026-11-08T12:08:11.7035274+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9953c1f5-c191-4d1a-8f75-56d7eafff8a1" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Tests.UploadCostCanRejectRemote" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="aaf7137b-e3de-bf27-c7d5-af200cb0599f">
+      <Execution id="feff40d1-832b-428a-a23b-3533a2d1082f" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Tests" name="UploadCostCanRejectRemote" />
+    </UnitTest>
+    <UnitTest name="Tests.BackupRestoresAndDetectsCorruption" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="a36a32a4-2e6d-ddf4-fdfa-572a8cf32843">
+      <Execution id="d332800f-97dc-40ff-bf48-7efbdf8633c3" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Tests" name="BackupRestoresAndDetectsCorruption" />
+    </UnitTest>
+    <UnitTest name="Tests.UnauthorizedNeverUploads" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="63403dde-a0c8-c023-7d73-e11c1c816ba6">
+      <Execution id="9953c1f5-c191-4d1a-8f75-56d7eafff8a1" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Tests" name="UnauthorizedNeverUploads" />
+    </UnitTest>
+    <UnitTest name="Tests.CompatibleFastRemoteSelected" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="25fac6f4-16c3-d21d-21f7-e3637c72802b">
+      <Execution id="5d061cec-021d-46de-bb0c-71d01f09ea45" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Tests" name="CompatibleFastRemoteSelected" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="aaf7137b-e3de-bf27-c7d5-af200cb0599f" executionId="feff40d1-832b-428a-a23b-3533a2d1082f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a36a32a4-2e6d-ddf4-fdfa-572a8cf32843" executionId="d332800f-97dc-40ff-bf48-7efbdf8633c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25fac6f4-16c3-d21d-21f7-e3637c72802b" executionId="5d061cec-021d-46de-bb0c-71d01f09ea45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63403dde-a0c8-c023-7d73-e11c1c816ba6" executionId="9953c1f5-c191-4d1a-8f75-56d7eafff8a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="4" executed="4" passed="4" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 8.0.33)
+[xUnit.net 00:00:00.19]   Discovering: ReviveOS.Tests
+[xUnit.net 00:00:00.28]   Discovered:  ReviveOS.Tests
+[xUnit.net 00:00:00.28]   Starting:    ReviveOS.Tests
+[xUnit.net 00:00:00.61]   Finished:    ReviveOS.Tests
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
