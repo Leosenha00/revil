@@ -15,7 +15,20 @@ try {
   case "check":message="Pedido administrativo autorizado pelo UAC para esta operação. A interface permanece com privilégios normais; novas ações podem pedir consentimento novamente.";break;
   case "cpu-inspect":
    var power=await new CpuPowerOptimizer().Inspect();
-   var inventory=await Commands.CheckedPowerShell("$cpu=Get-CimInstance Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors,MaxClockSpeed,CurrentClockSpeed; $ram=(Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory; $boot=bcdedit /enum '{current}' 2>&1 | Out-String; $bootExit=$LASTEXITCODE; [ordered]@{CPU=@($cpu);TotalPhysicalMemory=$ram;BootReadOnly=$boot;BootExitCode=$bootExit;ClockCaution='Clock CIM pode ser estático; não confirma throttling térmico.'}|ConvertTo-Json -Depth 5");
+   var inventory=await Commands.CheckedPowerShell("""
+$report=[ordered]@{}
+$report.CPU=@(Get-CimInstance Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors,MaxClockSpeed,CurrentClockSpeed)
+$report.TotalPhysicalMemory=(Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory
+$report.Errors=@()
+try {$report.PageFile=@(Get-CimInstance Win32_PageFileUsage | Select-Object Name,AllocatedBaseSize,CurrentUsage,PeakUsage)} catch {$report.Errors+=@{Section='PageFile';Error=$_.Exception.Message}}
+try {$report.Memory=@(Get-CimInstance Win32_PerfFormattedData_PerfOS_Memory | Select-Object AvailableMBytes,CommittedBytes,CommitLimit,PagesPersec)} catch {$report.Errors+=@{Section='Memory';Error=$_.Exception.Message}}
+try {$report.GPU=@(Get-CimInstance Win32_VideoController | Select-Object Name,DriverVersion,AdapterRAM)} catch {$report.Errors+=@{Section='GPU';Error=$_.Exception.Message}}
+$report.BootReadOnly=bcdedit /enum '{current}' 2>&1 | Out-String
+$report.BootExitCode=$LASTEXITCODE
+$report.MemoryCaution='Pagina de disco amplia compromisso de memoria, nao RAM fisica. Nao cria nucleos ou GPU. AdapterRAM CIM pode ser impreciso; nao e HD transformado em VRAM.'
+$report.ClockCaution='Clock CIM pode ser estatico; nao confirma throttling termico.'
+$report | ConvertTo-Json -Depth 6
+""");
    message=JsonSerializer.Serialize(power,State.Json)+"\n"+inventory;break;
   case "cpu-max":message=await new CpuPowerOptimizer().PermitNominalPerformance();break;
   case "cpu-restore":await new CpuPowerOptimizer().Restore();message="Estado máximo AC anterior restaurado e verificado nos planos registrados.";break;

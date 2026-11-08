@@ -18,3 +18,11 @@ $other=[Guid]::NewGuid()
 $p=Start-Process -FilePath $exe -ArgumentList @('--operation','check','--request',$other.ToString(),'--expected-sid','S-1-5-21-1-1-1-1000','--ids','W10=') -Wait -PassThru
 if($p.ExitCode -ne 17){throw 'Helper did not reject the wrong account SID'}
 'PASS: helper rejected a different user SID before any operation.' | Add-Content artifacts/admin-smoke.txt
+
+$cpuRequest=[Guid]::NewGuid()
+$p=Start-Process -FilePath $exe -ArgumentList @('--operation','cpu-inspect','--request',$cpuRequest.ToString(),'--expected-sid',$identity.User.Value,'--ids','W10=') -Wait -PassThru
+if($p.ExitCode -ne 0){throw 'Read-only CPU/memory inspection failed'}
+$file=Join-Path $env:LOCALAPPDATA ('ReviveOS\admin-results\'+$cpuRequest.ToString('N')+'.json')
+$result=Get-Content -LiteralPath $file -Raw | ConvertFrom-Json
+if(!$result.Success -or $result.Message -notmatch 'TotalPhysicalMemory' -or $result.Message -notmatch 'MemoryCaution'){throw 'CPU inspection did not return physical/virtual memory distinctions'}
+'PASS: read-only CPU/RAM/pagefile/GPU inspection returned a report; optional query errors are reported separately.' | Add-Content artifacts/admin-smoke.txt

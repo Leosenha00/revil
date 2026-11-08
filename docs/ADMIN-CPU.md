@@ -33,3 +33,13 @@ Fontes:
 - https://learn.microsoft.com/en-us/windows/win32/api/powersetting/nf-powersetting-powerwriteacvalueindex
 - https://support.microsoft.com/en-us/windows/experience/compatibility/windows-11-system-requirements
 - https://www.notebookcheck.net/Intel-Pentium-Dual-Core-T4500-Notebook-Processor.25727.0.html
+
+## Esclarecimento sobre HD como RAM, GPU ou núcleos
+
+O usuário esclareceu que projetos anteriores reservavam HD como memória e simulavam núcleos/vídeo. Não foi fornecido um repositório identificável. Paginação é real e já é gerenciada no módulo profundo; usa armazenamento para apoiar memória comprometida e pode evitar falta de memória. A RAM física continua a mesma e, no HD mecânico, acessos paginados podem aumentar travamentos.
+
+WARP e outros renderizadores por software executam gráficos na CPU, não no HD. vCPUs/emulação usam recursos do processador real; apresentar mais processadores a um convidado não cria capacidade física. Esses mecanismos não são anunciados como aceleração garantida do Chrome/AutoCAD nem são ativados globalmente por injeção.
+
+A inspeção administrativa inclui RAM física, paginação, contadores de memória e GPU conforme informado pelo CIM, com ressalvas e erros opcionais por seção. Não falsifica AdapterRAM ou quantidade de núcleos para produzir um desbloqueio aparente.
+
+Referências adicionais: https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/introduction-to-the-page-file ; https://learn.microsoft.com/en-us/windows/win32/direct3darticles/directx-warp ; https://www.intel.com/content/www/us/en/support/articles/000098959/processors/intel-xeon-processors.html . A referência de vCPU explica o conceito geral, não atribui Hyper-Threading ao T4500.
