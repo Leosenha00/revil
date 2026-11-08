@@ -1,4 +1,4 @@
-# ReviveOS Hybrid Extreme — 0.1.0 inicial
+# revil — ReviveOS Hybrid Extreme 0.1.0 inicial
 
 Aplicativo WPF para Windows 11 x64, publicado com runtime .NET 8 incluído. Projeto em desenvolvimento: **não atende ainda a todos os critérios do prompt master**.
 
@@ -39,7 +39,7 @@ Instalador no Windows: Inno Setup 6, `iscc installer/ReviveOS.iss`.
 Alternativa NSIS: `makensis installer/ReviveOS.nsi` após publicar.
 Devcontainer para desenvolvimento Linux incluído. WPF não executa em Linux.
 
-Workflow Actions compila, testa, consulta vulnerabilidades e disponibiliza artefato. Não foi executado no GitHub: a credencial recusou criação do repositório. Não há release remota publicada. O código foi versionado localmente para preservar a continuidade.
+Workflow Actions compila, testa, consulta vulnerabilidades e disponibiliza artefato. Repositório: https://github.com/Leosenha00/revil. O workflow é acionado no envio do código. Não há release remota publicada; consulte Actions para verificar o resultado da compilação Windows.
 
 ## Próximos testes no notebook
 
