@@ -21,7 +21,7 @@ try {
   case "cpu-restore":await new CpuPowerOptimizer().Restore();message="Estado máximo AC anterior restaurado e verificado nos planos registrados.";break;
   case "deep-apply":
    var deep=new DeepOptimizer();try{await deep.Apply(ids);}catch(Exception error){try{await deep.Restore();}catch(Exception undo){throw new AggregateException(error,undo);}throw;}message="Ajustes selecionados aplicados e verificados no contexto administrativo do mesmo usuário. Paginação requer reboot.";break;
-  case "deep-restore":var restore=new DeepOptimizer();if(ids.Length==0)await restore.Restore();else foreach(var id in ids)await restore.Restore(id);message="Ajustes profundos selecionados restaurados; paginação pode requerer reinício.";break;
+  case "deep-restore":var restore=new DeepOptimizer();if(ids.Length==0)await restore.Restore();else {var errors=new List<Exception>();foreach(var id in ids){try{await restore.Restore(id);}catch(Exception error){errors.Add(error);}}if(errors.Count>0)throw new AggregateException(errors);}message="Ajustes profundos selecionados restaurados; paginação pode requerer reinício.";break;
   default:throw new ArgumentException("Operação não permitida");
  }
  State.Save(AdminBroker.ResultPath(request),new AdminResult(true,message));return 0;

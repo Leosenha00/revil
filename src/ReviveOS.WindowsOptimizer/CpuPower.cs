@@ -5,10 +5,15 @@ namespace ReviveOS.WindowsOptimizer;
 public record CpuPowerReport(Guid Scheme,uint AcMaximumPercent,string Interpretation);
 public sealed class CpuPowerBackend:ISettingsBackend {
  static readonly Guid ProcessorGroup=new("54533251-82be-4824-96c1-47b60b740d00");static readonly Guid MaximumState=new("bc5038f7-23e0-4960-96da-33abaf5935ec");
+ [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
  [DllImport("PowrProf.dll")]static extern uint PowerGetActiveScheme(IntPtr root,out IntPtr scheme);
+ [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
  [DllImport("PowrProf.dll")]static extern uint PowerReadACValueIndex(IntPtr root,ref Guid scheme,ref Guid subgroup,ref Guid setting,out uint value);
+ [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
  [DllImport("PowrProf.dll")]static extern uint PowerWriteACValueIndex(IntPtr root,ref Guid scheme,ref Guid subgroup,ref Guid setting,uint value);
+ [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
  [DllImport("PowrProf.dll")]static extern uint PowerSetActiveScheme(IntPtr root,ref Guid scheme);
+ [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
  [DllImport("kernel32.dll")]static extern IntPtr LocalFree(IntPtr memory);
  static void Check(uint error){if(error!=0)throw new System.ComponentModel.Win32Exception((int)error);}
  public static Guid ActiveScheme(){if(!OperatingSystem.IsWindows())throw new PlatformNotSupportedException();Check(PowerGetActiveScheme(IntPtr.Zero,out var pointer));if(pointer==IntPtr.Zero)throw new IOException("Plano de energia ausente");try{return Marshal.PtrToStructure<Guid>(pointer);}finally{LocalFree(pointer);}}
