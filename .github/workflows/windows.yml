@@ -29,6 +29,9 @@ jobs:
           & $compiler installer/ReviveOS.iss
           if ($LASTEXITCODE -ne 0) { throw 'Installer compilation failed' }
           Get-FileHash artifacts/*.exe | Format-List | Out-File artifacts/SHA256.txt
+      - name: Install, launch and uninstall smoke test
+        shell: powershell
+        run: ./scripts/installer-smoke.ps1
       - uses: actions/upload-artifact@v4
         with:
           name: ReviveOS-Windows-x64
