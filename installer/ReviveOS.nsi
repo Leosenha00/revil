@@ -1,5 +1,5 @@
 Unicode true
-Name "ReviveOS Hybrid Extreme 0.1"
+Name "ReviveOS Hybrid Extreme 0.2"
 OutFile "../artifacts/ReviveOS-Hybrid-Extreme-Setup.exe"
 InstallDir "$LOCALAPPDATA\Programs\ReviveOS"
 RequestExecutionLevel user

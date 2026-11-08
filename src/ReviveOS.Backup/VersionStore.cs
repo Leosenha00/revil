@@ -4,10 +4,10 @@ namespace ReviveOS.Backup;
 public record BackupEntry(string Original,string ObjectPath,string Sha256,long Size,DateTime Utc);
 public sealed class VersionStore(string root) {
  public async Task<BackupEntry> Backup(string source,CancellationToken ct=default) {
-  source=Path.GetFullPath(source);Directory.CreateDirectory(root);var tmp=Path.Combine(root,Guid.NewGuid()+".partial");
+  source=Path.GetFullPath(source);Directory.CreateDirectory(root);var drive=new DriveInfo(Path.GetPathRoot(Path.GetFullPath(root))!);if(drive.AvailableFreeSpace<new FileInfo(source).Length+64L*1024*1024)throw new IOException("Espaço insuficiente: preserve ao menos 64 MiB livres");var tmp=Path.Combine(root,Guid.NewGuid()+".partial");
   try {await using(var input=new FileStream(source,FileMode.Open,FileAccess.Read,FileShare.Read)) await using(var output=File.Create(tmp)) await input.CopyToAsync(output,ct);
    await using var read=File.OpenRead(tmp);var hash=Convert.ToHexString(await SHA256.HashDataAsync(read,ct));var size=read.Length;read.Close();var dest=Path.Combine(root,hash+".bin");
-   if(!File.Exists(dest))File.Move(tmp,dest);else File.Delete(tmp);
+   if(!File.Exists(dest))File.Move(tmp,dest);else {await using var existing=File.OpenRead(dest);var existingHash=Convert.ToHexString(await SHA256.HashDataAsync(existing,ct));if(existingHash!=hash)throw new IOException("Objeto de backup existente corrompido; nenhuma versão sobrescrita");File.Delete(tmp);}
    var entry=new BackupEntry(source,dest,hash,size,DateTime.UtcNow);State.Save(Path.Combine(root,Guid.NewGuid()+".json"),entry);return entry;
   } finally{if(File.Exists(tmp))File.Delete(tmp);}
  }

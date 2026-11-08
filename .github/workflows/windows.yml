@@ -13,9 +13,15 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: dotnet test tests/ReviveOS.Tests -c Release --logger "trx;LogFileName=tests.trx"
       - run: dotnet list ReviveOS.sln package --vulnerable --include-transitive
       - run: dotnet publish src/ReviveOS.UI -c Release -r win-x64 --self-contained true -o publish
+      - name: Windows inventory and WPF smoke test
+        shell: powershell
+        run: ./scripts/windows-smoke.ps1
       - shell: pwsh
         run: |
           $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"

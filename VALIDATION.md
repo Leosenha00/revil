@@ -1,9 +1,7 @@
-# Verificação da versão 0.1
+# Verificação 0.2.0
 
-Ambiente: Linux x64; SDK 8.0.427. Compilação cruzada WPF Windows x64 com runtime incluído concluída.
+Linux x64, SDK 8.0.427: compilação cruzada WPF Windows x64 concluída. Dez testes passaram: custo de transferência, bloqueio remoto sem autorização, seleção remota compatível, backup/versionamento/corrupção, diário com escrita interrompida e recuperação em nova instância, restauração continua após falha e permite retentativa, preservação do backup contra reaplicação, Python local com resultado verificável e falha registrada, consentimento e validação de alias SSH, recuperação conservadora de sessão interrompida.
 
-Quatro testes xUnit passaram: custo de upload rejeita remoto; falta de autorização impede seleção remota; execução remota estimada mais rápida é selecionada; backup cria versões, restaura conteúdo, impede sobrescrita e detecta corrupção.
+O workflow testa adicionalmente o coletor CIM e abertura/fechamento de uma janela WPF no runner Windows. Consulte o resultado do commit na aba Actions antes de considerar esse teste aprovado. Logs de execução estão em validation/v02-* e no artefato Actions.
 
-Instalador NSIS gerado em Linux. Não executado em Windows. Sem assinatura Authenticode. Não há números de desempenho do notebook: equipamento não conectado. Compilação não comprova execução nem ganho de desempenho.
-
-Pendentes: diagnóstico Windows real, aplicação/reversão dos ajustes, recuperação após interrupção, teste da UI, instalação/desinstalação, testes de Wi-Fi, AutoCAD, provedores e execução remota. Nenhum deles é marcado como aprovado.
+Não testados no notebook: Wi-Fi e sua tarefa no login, alterações de registro/energia, temperatura, responsividade, AutoCAD, backup de arquivo aberto. Adaptador SSH implementado, mas ainda sem teste ponta a ponta em host autorizado com chaves reais. RDP não testado em host remoto. Não há benchmark de ganhos nem teste de reboot físico. Nenhuma dessas validações é declarada concluída.
