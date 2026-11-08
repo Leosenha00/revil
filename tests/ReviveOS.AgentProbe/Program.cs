@@ -19,7 +19,7 @@ if(args[0]=="verify-stop"){
  var status=ContinuousClient.Status()??throw new Exception("No status after parent exited");
  if(status.State!="running"||DateTime.UtcNow-status.Utc>TimeSpan.FromSeconds(45))throw new Exception("Agent not running after parent exit");
  var identity=new NativePriorityBackend().Describe(status.Pid)?.Identity;
- if(identity?.Sid!=user.User?.Value||!string.Equals(identity.Path,executable,StringComparison.OrdinalIgnoreCase))throw new Exception("Wrong process/user");
+ if(identity==null||identity.Sid!=user.User?.Value||!string.Equals(identity.Path,executable,StringComparison.OrdinalIgnoreCase))throw new Exception("Wrong process/user");
  await ContinuousClient.Stop();
  using(var lease=ContinuousClient.Lease()){}
  using var key=Registry.CurrentUser.OpenSubKey(run);
