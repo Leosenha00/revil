@@ -1,0 +1,1 @@
+windows	Run dotnet test tests/ReviveOS.Tests -c Release --logger "trx;LogFileName=tests.trx"	2026-11-08T15:44:33.8616585Z Passed!  - Failed:     0, Passed:    30, Skipped:     0, Total:    30, Duration: 22 s - ReviveOS.Tests.dll (net8.0)

@@ -1,4 +1,4 @@
-# Cobertura real dos requisitos — 0.5
+# Cobertura real dos requisitos — 0.6
 
 Nenhum conjunto de sites significa que todos os requisitos foram atendidos. Esta matriz mantém a diferença entre código implementado e validação no equipamento. Os testes citados são de runner Windows ou de serviços com exemplos, não benchmarks do notebook.
 
@@ -15,9 +15,9 @@ Nenhum conjunto de sites significa que todos os requisitos foram atendidos. Esta
 | 9 Scheduler | Estimativa de transferências em biblioteca; central filtra compatibilidade/privacidade | Coletar tempos/velocidades reais e integrar escolha automática à fila |
 | 10 AutoCAD Boost | Detecção/perfil local; abertura oficial Web com licença condicionada | Desenho, versão, licença, fluidez e configurações do AutoCAD reais |
 | 11 Execução remota | SSH compatível com resultado/checksum; abertura do cliente RDP | Infraestrutura Windows/GPU autorizada e streaming testado; nenhum host foi fornecido |
-| 12 Apps universais | Perfis de apps conhecidos; Python, FFmpeg e Blender por adaptadores | Expandir ajustes específicos e validar os aplicativos instalados |
+| 12 Apps universais | Perfis de apps conhecidos; Python/FFmpeg/Blender; Chrome com políticas reversíveis e perfil separado | Expandir ajustes específicos e validar os aplicativos instalados |
 | 13 Backup/recuperação | Versões locais, checksum, monitor de um arquivo e recuperação de resultado confirmado | Sincronização com conflitos, retomada por blocos e checkpoints específicos de tarefas |
-| 14 Benchmarks | Amostras CPU/RAM/disco e teste limitado de arquivo temporário | Boot, abertura do AutoCAD, latência de streaming, comparação equivalente e regressões no notebook |
+| 14 Benchmarks | Amostras CPU/RAM/disco, arquivo temporário e tempo observado até janela Chrome visível | Boot, abertura do AutoCAD, latência de streaming, comparação equivalente e regressões no notebook |
 | 15 Distribuição | Instaladores reais, testes automatizados e releases | Assinatura Authenticode e homologação completa do hardware |
 
 A central não instala ferramentas pagas, não transmite senhas e não envia arquivos automaticamente. Hardware/firmware, licença e infraestrutura ausentes não são simulados como resolvidos. O histórico e os relatórios locais são a base para continuar o mesmo projeto.
