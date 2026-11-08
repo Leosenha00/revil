@@ -25,12 +25,12 @@ public sealed class WindowsSettings:ISettingsBackend {
   _=>throw new ArgumentException("Ajuste desconhecido")};
  public async Task<string?> Read(string id){
   if(id=="power"){var s=await Commands.CheckedPowerShell("$s=powercfg /getactivescheme; if($LASTEXITCODE -ne 0){throw $s}; [regex]::Match($s,'[a-fA-F0-9]{8}(-[a-fA-F0-9]{4}){3}-[a-fA-F0-9]{12}').Value");if(!Guid.TryParse(s.Trim(),out var g))throw new IOException("Plano não identificado");return g.ToString();}
-  var r=Registry(id);var value=await Commands.CheckedPowerShell($"$p='{r.Path}'; if(Test-Path $p){{$v=Get-ItemProperty -Path $p; if($null -ne $v.{r.Name}){{$v.{r.Name}}}}}");return value.Trim() is ""?null:value.Trim();
+  var r=Registry(id);var value=await Commands.CheckedPowerShell($"$p='{r.Path}'; if(Test-Path $p){{$v=Get-ItemProperty -Path $p; if($null -ne $v.{r.Name}){{$kind=(Get-Item -Path $p).GetValueKind('{r.Name}'); if($kind -ne '{(r.Dword?"DWord":"String")}'){{throw 'Tipo de registro incompatível; ajuste recusado'}}; $v.{r.Name}}}}}");return value.Trim() is ""?null:value.Trim();
  }
  public async Task Write(string id,string? value){
   if(id=="power"){if(!Guid.TryParse(value,out var guid))throw new IOException("GUID inválido");await Commands.CheckedPowerShell($"powercfg /setactive {guid}; if($LASTEXITCODE -ne 0){{throw 'Plano indisponível'}}");return;}
   var r=Registry(id);if(value!=null&&!uint.TryParse(value,out _))throw new IOException("Backup de configuração inválido");
-  var command=value==null?$"if(Test-Path $p){{Remove-ItemProperty -Path $p -Name '{r.Name}' -ErrorAction SilentlyContinue}}":$"New-Item -Path $p -Force | Out-Null; New-ItemProperty -Path $p -Name '{r.Name}' -PropertyType {(r.Dword?"DWord":"String")} -Value '{value}' -Force | Out-Null";
+  var command=value==null?$"if(Test-Path $p){{Remove-ItemProperty -Path $p -Name '{r.Name}' -ErrorAction SilentlyContinue}}":$"if(!(Test-Path $p)){{New-Item -Path $p -Force | Out-Null}}; New-ItemProperty -Path $p -Name '{r.Name}' -PropertyType {(r.Dword?"DWord":"String")} -Value '{value}' -Force | Out-Null";
   await Commands.CheckedPowerShell($"$p='{r.Path}'; "+command);
  }
 }

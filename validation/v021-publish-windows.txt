@@ -1,0 +1,25 @@
+  Determining projects to restore...
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WindowsOptimizer/ReviveOS.WindowsOptimizer.csproj (in 105 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.UI/ReviveOS.UI.csproj (in 147 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/ReviveOS.Core.csproj (in 2 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/ReviveOS.HybridScheduler.csproj (in 3 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.CloudEngine/ReviveOS.CloudEngine.csproj (in 2 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/ReviveOS.Backup.csproj (in 2 ms).
+  10 of 16 projects are up-to-date for restore.
+  ReviveOS.Core -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/bin/Release/net8.0/ReviveOS.Core.dll
+  ReviveOS.TurboEngine -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.TurboEngine/bin/Release/net8.0/ReviveOS.TurboEngine.dll
+  ReviveOS.CloudEngine -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.CloudEngine/bin/Release/net8.0/ReviveOS.CloudEngine.dll
+  ReviveOS.AutoCAD -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.AutoCAD/bin/Release/net8.0/ReviveOS.AutoCAD.dll
+  ReviveOS.ProcessManager -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.ProcessManager/bin/Release/net8.0/ReviveOS.ProcessManager.dll
+  ReviveOS.Recovery -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Recovery/bin/Release/net8.0/ReviveOS.Recovery.dll
+  ReviveOS.Backup -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/bin/Release/net8.0/ReviveOS.Backup.dll
+  ReviveOS.WindowsOptimizer -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WindowsOptimizer/bin/Release/net8.0/ReviveOS.WindowsOptimizer.dll
+  ReviveOS.Security -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Security/bin/Release/net8.0/ReviveOS.Security.dll
+  ReviveOS.Diagnostics -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Diagnostics/bin/Release/net8.0/ReviveOS.Diagnostics.dll
+  ReviveOS.Browser -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Browser/bin/Release/net8.0/ReviveOS.Browser.dll
+  ReviveOS.Multimedia -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Multimedia/bin/Release/net8.0/ReviveOS.Multimedia.dll
+  ReviveOS.WiFiManager -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WiFiManager/bin/Release/net8.0/ReviveOS.WiFiManager.dll
+  ReviveOS.HybridScheduler -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/bin/Release/net8.0/ReviveOS.HybridScheduler.dll
+  ReviveOS.RemoteApps -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.RemoteApps/bin/Release/net8.0/ReviveOS.RemoteApps.dll
+  ReviveOS.UI -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.UI/bin/Release/net8.0-windows/win-x64/ReviveOS.dll
+  ReviveOS.UI -> /workspace/ReviveOS-Hybrid-Extreme/publish/

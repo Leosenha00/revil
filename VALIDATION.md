@@ -1,4 +1,4 @@
-# Verificação 0.2.0
+# Verificação 0.2.1
 
 Linux x64, SDK 8.0.427: compilação cruzada WPF Windows x64 concluída. Onze testes passaram: custo de transferência, bloqueio remoto sem autorização, seleção remota compatível, backup/versionamento/corrupção, diário com escrita interrompida e recuperação em nova instância, restauração continua após falha e permite retentativa, preservação do backup contra reaplicação, Python local com resultado verificável e falha registrada, consentimento e validação de alias SSH, recuperação conservadora de sessão interrompida.
 
@@ -7,3 +7,5 @@ O workflow testa adicionalmente o coletor CIM e abertura/fechamento de uma janel
 Não testados no notebook: Wi-Fi e sua tarefa no login, alterações de registro/energia, temperatura, responsividade, AutoCAD, backup de arquivo aberto. Adaptador SSH implementado, com teste ponta a ponta concluído em servidor OpenSSH local (loopback), usando chaves temporárias e host key previamente configurada; host externo ainda pendente. RDP não testado em host remoto. Não há benchmark de ganhos nem teste de reboot físico. Nenhuma dessas validações é declarada concluída.
 
 Integração SSH adicional: servidor OpenSSH real em 127.0.0.1:22229, chaves temporárias, StrictHostKeyChecking=yes. Upload, execução de Python, download, SHA-256 e recuperação do resultado passaram. Esse teste valida o protocolo e o adaptador em loopback; não mede latência externa nem comprova disponibilidade de provedor. Harness reproduzível: `dotnet run --project tests/ReviveOS.SshIntegration -- <alias> --authorize-test-upload`. O comando envia e executa somente o script de teste criado pelo harness; requer host autorizado POSIX com Python 3.
+
+0.2.1 acrescenta dois testes Windows: preservação de valor vizinho no registro ao aplicar/reverter animações e leitura de GUID do plano ativo. Eles são explicitamente ignorados em Linux e executados no runner Windows. Workflow também valida instalação silenciosa, abertura da aplicação instalada e desinstalação. A revisão corrigiu criação desnecessária de chave existente; release 0.2.0 convertida em rascunho antes de qualquer download registrado.

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="cfcea865-fffa-41eb-a6a4-7cf029080538" name="@e2f76121663c 2026-11-08 12:37:14" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-11-08T12:37:14.4161995+00:00" queuing="2026-11-08T12:37:14.4161995+00:00" start="2026-11-08T12:37:13.7882695+00:00" finish="2026-11-08T12:37:15.2692055+00:00" />
+  <TestSettings name="default" id="4bddf46b-69c1-44a5-b11d-2a7b62fcda90">
+    <Deployment runDeploymentRoot="_e2f76121663c_2026-11-08_12_37_14" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="7c34fd8c-f945-4dea-b3e9-74998b6d2ec8" testId="2576a146-14da-3601-f6da-10c39fdd038b" testName="JobTests.CancellationRecordsStateAndStopsLocalChild" computerName="e2f76121663c" duration="00:00:00.8131893" startTime="2026-11-08T12:37:15.2104922+00:00" endTime="2026-11-08T12:37:15.2104924+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7c34fd8c-f945-4dea-b3e9-74998b6d2ec8" />
+    <UnitTestResult executionId="7601504e-6b39-446b-bba8-629fcc02f2f0" testId="25fac6f4-16c3-d21d-21f7-e3637c72802b" testName="Tests.CompatibleFastRemoteSelected" computerName="e2f76121663c" duration="00:00:00.0001024" startTime="2026-11-08T12:37:14.3324943+00:00" endTime="2026-11-08T12:37:14.3324943+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7601504e-6b39-446b-bba8-629fcc02f2f0" />
+    <UnitTestResult executionId="c30b51b9-e822-4c57-9cf9-b9244d165037" testId="d4a4d4da-599d-beec-3bde-32a85ab1eb85" testName="WindowsSettingsTests.ExistingRegistryValuesSurviveApplyAndRestore" computerName="e2f76121663c" duration="00:00:00.0010000" startTime="2026-11-08T12:37:14.2658843+00:00" endTime="2026-11-08T12:37:14.2658845+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c30b51b9-e822-4c57-9cf9-b9244d165037">
+      <Output>
+        <ErrorInfo>
+          <Message>Requires Windows registry and powercfg</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2c122ba0-a136-4fdc-bf61-852f6e00bcab" testId="9c1a6f08-e2a4-7b4a-03aa-41832942f6e5" testName="JobTests.InterruptedSessionsNeverPretendToComplete" computerName="e2f76121663c" duration="00:00:00.0011862" startTime="2026-11-08T12:37:15.2117666+00:00" endTime="2026-11-08T12:37:15.2117666+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c122ba0-a136-4fdc-bf61-852f6e00bcab" />
+    <UnitTestResult executionId="0d7a6f1e-0a8d-4af2-8a58-88e85aa0faf8" testId="61223256-facb-00b6-42db-cf2905bc30c2" testName="JobTests.PythonJobProducesVerifiedArtifactAndFailureIsRecorded" computerName="e2f76121663c" duration="00:00:00.1327636" startTime="2026-11-08T12:37:14.3991421+00:00" endTime="2026-11-08T12:37:14.3991422+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0d7a6f1e-0a8d-4af2-8a58-88e85aa0faf8" />
+    <UnitTestResult executionId="9131e9f3-9ec4-4d72-a4aa-668b916a59e5" testId="18ef04ff-11ca-c37c-8ec7-f95590f152e5" testName="RecoveryTests.DuplicateDoesNotOverwriteOriginalBackup" computerName="e2f76121663c" duration="00:00:00.0017138" startTime="2026-11-08T12:37:14.3941874+00:00" endTime="2026-11-08T12:37:14.3941876+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9131e9f3-9ec4-4d72-a4aa-668b916a59e5" />
+    <UnitTestResult executionId="23d82be6-b358-4f6a-9574-a7e91497271f" testId="a36a32a4-2e6d-ddf4-fdfa-572a8cf32843" testName="Tests.BackupRestoresAndDetectsCorruption" computerName="e2f76121663c" duration="00:00:00.0543175" startTime="2026-11-08T12:37:14.3324273+00:00" endTime="2026-11-08T12:37:14.3324275+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23d82be6-b358-4f6a-9574-a7e91497271f" />
+    <UnitTestResult executionId="dadd2a0f-cf43-40b9-b623-38bf567d48fe" testId="55591430-fc3f-6710-0fdb-49e9f4f5d67c" testName="WindowsSettingsTests.ActivePowerPlanHasRestorableGuid" computerName="e2f76121663c" duration="00:00:00.0010000" startTime="2026-11-08T12:37:14.2532726+00:00" endTime="2026-11-08T12:37:14.2532921+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dadd2a0f-cf43-40b9-b623-38bf567d48fe">
+      <Output>
+        <ErrorInfo>
+          <Message>Requires Windows registry and powercfg</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="af2fe38a-e10d-476e-89a4-cca6518c561c" testId="dcf8e112-926d-5e74-fc66-696a9b0f5a20" testName="JobTests.RemoteRequiresExplicitUploadConsent" computerName="e2f76121663c" duration="00:00:00.0027735" startTime="2026-11-08T12:37:15.2146197+00:00" endTime="2026-11-08T12:37:15.2146197+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af2fe38a-e10d-476e-89a4-cca6518c561c" />
+    <UnitTestResult executionId="808f0d09-c90e-4e74-affb-d2d760d13fe0" testId="d9c7b9a5-feb1-d40b-231c-c4b4d5a83cc9" testName="RecoveryTests.InterruptedMutationCanRestoreAfterRestart" computerName="e2f76121663c" duration="00:00:00.0025866" startTime="2026-11-08T12:37:14.3706257+00:00" endTime="2026-11-08T12:37:14.3706257+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="808f0d09-c90e-4e74-affb-d2d760d13fe0" />
+    <UnitTestResult executionId="b6c1a02a-dd75-40b9-891a-e6a0852857f5" testId="63403dde-a0c8-c023-7d73-e11c1c816ba6" testName="Tests.UnauthorizedNeverUploads" computerName="e2f76121663c" duration="00:00:00.0028681" startTime="2026-11-08T12:37:14.2709251+00:00" endTime="2026-11-08T12:37:14.2709253+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6c1a02a-dd75-40b9-891a-e6a0852857f5" />
+    <UnitTestResult executionId="1cbe22df-c8b9-472d-af4c-add7fad61682" testId="d4c0a117-3bc8-9eb9-7b2f-1e66f677011f" testName="RecoveryTests.RestoreContinuesAfterOneFailureAndSupportsRetry" computerName="e2f76121663c" duration="00:00:00.0356769" startTime="2026-11-08T12:37:14.3679795+00:00" endTime="2026-11-08T12:37:14.3679797+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1cbe22df-c8b9-472d-af4c-add7fad61682" />
+    <UnitTestResult executionId="8ee5fc24-0fb6-4951-9048-797ca51e86c7" testId="aaf7137b-e3de-bf27-c7d5-af200cb0599f" testName="Tests.UploadCostCanRejectRemote" computerName="e2f76121663c" duration="00:00:00.0000510" startTime="2026-11-08T12:37:14.3325250+00:00" endTime="2026-11-08T12:37:14.3325251+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8ee5fc24-0fb6-4951-9048-797ca51e86c7" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="JobTests.PythonJobProducesVerifiedArtifactAndFailureIsRecorded" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="61223256-facb-00b6-42db-cf2905bc30c2">
+      <Execution id="0d7a6f1e-0a8d-4af2-8a58-88e85aa0faf8" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="JobTests" name="PythonJobProducesVerifiedArtifactAndFailureIsRecorded" />
+    </UnitTest>
+    <UnitTest name="JobTests.RemoteRequiresExplicitUploadConsent" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="dcf8e112-926d-5e74-fc66-696a9b0f5a20">
+      <Execution id="af2fe38a-e10d-476e-89a4-cca6518c561c" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="JobTests" name="RemoteRequiresExplicitUploadConsent" />
+    </UnitTest>
+    <UnitTest name="RecoveryTests.RestoreContinuesAfterOneFailureAndSupportsRetry" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="d4c0a117-3bc8-9eb9-7b2f-1e66f677011f">
+      <Execution id="1cbe22df-c8b9-472d-af4c-add7fad61682" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="RecoveryTests" name="RestoreContinuesAfterOneFailureAndSupportsRetry" />
+    </UnitTest>
+    <UnitTest name="Tests.UploadCostCanRejectRemote" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="aaf7137b-e3de-bf27-c7d5-af200cb0599f">
+      <Execution id="8ee5fc24-0fb6-4951-9048-797ca51e86c7" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Tests" name="UploadCostCanRejectRemote" />
+    </UnitTest>
+    <UnitTest name="JobTests.CancellationRecordsStateAndStopsLocalChild" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="2576a146-14da-3601-f6da-10c39fdd038b">
+      <Execution id="7c34fd8c-f945-4dea-b3e9-74998b6d2ec8" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="JobTests" name="CancellationRecordsStateAndStopsLocalChild" />
+    </UnitTest>
+    <UnitTest name="WindowsSettingsTests.ExistingRegistryValuesSurviveApplyAndRestore" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="d4a4d4da-599d-beec-3bde-32a85ab1eb85">
+      <Execution id="c30b51b9-e822-4c57-9cf9-b9244d165037" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WindowsSettingsTests" name="ExistingRegistryValuesSurviveApplyAndRestore" />
+    </UnitTest>
+    <UnitTest name="Tests.BackupRestoresAndDetectsCorruption" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="a36a32a4-2e6d-ddf4-fdfa-572a8cf32843">
+      <Execution id="23d82be6-b358-4f6a-9574-a7e91497271f" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Tests" name="BackupRestoresAndDetectsCorruption" />
+    </UnitTest>
+    <UnitTest name="RecoveryTests.InterruptedMutationCanRestoreAfterRestart" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="d9c7b9a5-feb1-d40b-231c-c4b4d5a83cc9">
+      <Execution id="808f0d09-c90e-4e74-affb-d2d760d13fe0" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="RecoveryTests" name="InterruptedMutationCanRestoreAfterRestart" />
+    </UnitTest>
+    <UnitTest name="JobTests.InterruptedSessionsNeverPretendToComplete" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="9c1a6f08-e2a4-7b4a-03aa-41832942f6e5">
+      <Execution id="2c122ba0-a136-4fdc-bf61-852f6e00bcab" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="JobTests" name="InterruptedSessionsNeverPretendToComplete" />
+    </UnitTest>
+    <UnitTest name="Tests.UnauthorizedNeverUploads" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="63403dde-a0c8-c023-7d73-e11c1c816ba6">
+      <Execution id="b6c1a02a-dd75-40b9-891a-e6a0852857f5" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Tests" name="UnauthorizedNeverUploads" />
+    </UnitTest>
+    <UnitTest name="Tests.CompatibleFastRemoteSelected" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="25fac6f4-16c3-d21d-21f7-e3637c72802b">
+      <Execution id="7601504e-6b39-446b-bba8-629fcc02f2f0" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Tests" name="CompatibleFastRemoteSelected" />
+    </UnitTest>
+    <UnitTest name="WindowsSettingsTests.ActivePowerPlanHasRestorableGuid" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="55591430-fc3f-6710-0fdb-49e9f4f5d67c">
+      <Execution id="dadd2a0f-cf43-40b9-b623-38bf567d48fe" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="WindowsSettingsTests" name="ActivePowerPlanHasRestorableGuid" />
+    </UnitTest>
+    <UnitTest name="RecoveryTests.DuplicateDoesNotOverwriteOriginalBackup" storage="/workspace/reviveos-hybrid-extreme/tests/reviveos.tests/bin/release/net8.0/reviveos.tests.dll" id="18ef04ff-11ca-c37c-8ec7-f95590f152e5">
+      <Execution id="9131e9f3-9ec4-4d72-a4aa-668b916a59e5" />
+      <TestMethod codeBase="/workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="RecoveryTests" name="DuplicateDoesNotOverwriteOriginalBackup" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="2576a146-14da-3601-f6da-10c39fdd038b" executionId="7c34fd8c-f945-4dea-b3e9-74998b6d2ec8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25fac6f4-16c3-d21d-21f7-e3637c72802b" executionId="7601504e-6b39-446b-bba8-629fcc02f2f0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d4a4d4da-599d-beec-3bde-32a85ab1eb85" executionId="c30b51b9-e822-4c57-9cf9-b9244d165037" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9c1a6f08-e2a4-7b4a-03aa-41832942f6e5" executionId="2c122ba0-a136-4fdc-bf61-852f6e00bcab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="61223256-facb-00b6-42db-cf2905bc30c2" executionId="0d7a6f1e-0a8d-4af2-8a58-88e85aa0faf8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="18ef04ff-11ca-c37c-8ec7-f95590f152e5" executionId="9131e9f3-9ec4-4d72-a4aa-668b916a59e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a36a32a4-2e6d-ddf4-fdfa-572a8cf32843" executionId="23d82be6-b358-4f6a-9574-a7e91497271f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="55591430-fc3f-6710-0fdb-49e9f4f5d67c" executionId="dadd2a0f-cf43-40b9-b623-38bf567d48fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dcf8e112-926d-5e74-fc66-696a9b0f5a20" executionId="af2fe38a-e10d-476e-89a4-cca6518c561c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d9c7b9a5-feb1-d40b-231c-c4b4d5a83cc9" executionId="808f0d09-c90e-4e74-affb-d2d760d13fe0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="63403dde-a0c8-c023-7d73-e11c1c816ba6" executionId="b6c1a02a-dd75-40b9-891a-e6a0852857f5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d4c0a117-3bc8-9eb9-7b2f-1e66f677011f" executionId="1cbe22df-c8b9-472d-af4c-add7fad61682" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aaf7137b-e3de-bf27-c7d5-af200cb0599f" executionId="8ee5fc24-0fb6-4951-9048-797ca51e86c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="13" executed="11" passed="11" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 8.0.33)
+[xUnit.net 00:00:00.06]   Discovering: ReviveOS.Tests
+[xUnit.net 00:00:00.09]   Discovered:  ReviveOS.Tests
+[xUnit.net 00:00:00.09]   Starting:    ReviveOS.Tests
+[xUnit.net 00:00:00.12]       Requires Windows registry and powercfg
+[xUnit.net 00:00:00.14]       Requires Windows registry and powercfg
+Test 'WindowsSettingsTests.ActivePowerPlanHasRestorableGuid' was skipped in the test run.
+Test 'WindowsSettingsTests.ExistingRegistryValuesSurviveApplyAndRestore' was skipped in the test run.
+[xUnit.net 00:00:01.09]   Finished:    ReviveOS.Tests
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="e2f76121663c" outcome="Warning" timestamp="2026-11-08T12:37:14.2600587+00:00">
+        <Text>[xUnit.net 00:00:00.12]     WindowsSettingsTests.ActivePowerPlanHasRestorableGuid [SKIP]</Text>
+      </RunInfo>
+      <RunInfo computerName="e2f76121663c" outcome="Warning" timestamp="2026-11-08T12:37:14.2646547+00:00">
+        <Text>[xUnit.net 00:00:00.14]     WindowsSettingsTests.ExistingRegistryValuesSurviveApplyAndRestore [SKIP]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

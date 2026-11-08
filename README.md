@@ -1,4 +1,4 @@
-# revil — ReviveOS Hybrid Extreme 0.2.0
+# revil — ReviveOS Hybrid Extreme 0.2.1
 
 Aplicativo Windows 11 x64 em C#/.NET 8 e WPF. Instalador com runtime incluído; não exige instalar .NET separadamente. Código e distribuição: https://github.com/Leosenha00/revil.
 

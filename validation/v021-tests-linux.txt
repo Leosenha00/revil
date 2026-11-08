@@ -1,0 +1,26 @@
+  Determining projects to restore...
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WindowsOptimizer/ReviveOS.WindowsOptimizer.csproj (in 99 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/ReviveOS.HybridScheduler.csproj (in 72 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/ReviveOS.Core.csproj (in 2 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.CloudEngine/ReviveOS.CloudEngine.csproj (in 2 ms).
+  Restored /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/ReviveOS.Backup.csproj (in 0.9 ms).
+  1 of 6 projects are up-to-date for restore.
+  ReviveOS.Core -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Core/bin/Release/net8.0/ReviveOS.Core.dll
+  ReviveOS.HybridScheduler -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.HybridScheduler/bin/Release/net8.0/ReviveOS.HybridScheduler.dll
+  ReviveOS.CloudEngine -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.CloudEngine/bin/Release/net8.0/ReviveOS.CloudEngine.dll
+  ReviveOS.WindowsOptimizer -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.WindowsOptimizer/bin/Release/net8.0/ReviveOS.WindowsOptimizer.dll
+  ReviveOS.Backup -> /workspace/ReviveOS-Hybrid-Extreme/src/ReviveOS.Backup/bin/Release/net8.0/ReviveOS.Backup.dll
+  ReviveOS.Tests -> /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll
+Test run for /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/bin/Release/net8.0/ReviveOS.Tests.dll (.NETCoreApp,Version=v8.0)
+VSTest version 17.11.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.12]     WindowsSettingsTests.ActivePowerPlanHasRestorableGuid [SKIP]
+[xUnit.net 00:00:00.14]     WindowsSettingsTests.ExistingRegistryValuesSurviveApplyAndRestore [SKIP]
+  Skipped WindowsSettingsTests.ActivePowerPlanHasRestorableGuid [1 ms]
+  Skipped WindowsSettingsTests.ExistingRegistryValuesSurviveApplyAndRestore [1 ms]
+WARNING: Overwriting results file: /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/TestResults/v021.trx
+Results File: /workspace/ReviveOS-Hybrid-Extreme/tests/ReviveOS.Tests/TestResults/v021.trx
+
+Passed!  - Failed:     0, Passed:    11, Skipped:     2, Total:    13, Duration: 961 ms - ReviveOS.Tests.dll (net8.0)
