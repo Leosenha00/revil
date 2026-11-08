@@ -1,0 +1,2 @@
+windows	Run dotnet test tests/ReviveOS.Tests -c Release --logger "trx;LogFileName=tests.trx"	2026-11-08T12:38:13.2838811Z Passed!  - Failed:     0, Passed:    13, Skipped:     0, Total:    13, Duration: 4 s - ReviveOS.Tests.dll (net8.0)
+windows	Install, launch and uninstall smoke test	﻿2026-11-08T12:39:21.1648757Z ##[group]Run ./scripts/installer-smoke.ps1

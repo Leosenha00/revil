@@ -1,0 +1,6 @@
+Collector succeeded. Optional section errors: 0
+WPF window opened.
+WPF window closed cleanly.
+Installer installed executable.
+Installed application opened and closed.
+Installer uninstall succeeded.
