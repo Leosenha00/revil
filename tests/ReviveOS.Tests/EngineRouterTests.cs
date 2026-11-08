@@ -1,0 +1,10 @@
+using Xunit;
+using ReviveOS.HybridScheduler;
+public class EngineRouterTests {
+ static EngineContext Empty=>new(false,false,false,false,false,false,false,false,false);
+ [Fact]public void PrivateDataNeverRoutedToPublicServices(){foreach(var task in Enum.GetValues<TaskKind>()){var routes=EngineRouter.Routes(task,Empty with{PrivateUploadApproved=true,AutodeskWebEntitlementConfirmed=true,AuthorizedSshHost=true});Assert.DoesNotContain(routes,x=>x.Engine is "BINDER" or "SAGECELL");}}
+ [Fact]public void WebRequiresEntitlementAndPrivateUploadApproval(){Assert.DoesNotContain(EngineRouter.Routes(TaskKind.CadWebEditing,Empty with{AutodeskWebEntitlementConfirmed=true}),x=>x.Engine=="AUTOCAD_WEB");Assert.Contains(EngineRouter.Routes(TaskKind.CadWebEditing,Empty with{AutodeskWebEntitlementConfirmed=true,PrivateUploadApproved=true}),x=>x.Engine=="AUTOCAD_WEB");Assert.DoesNotContain(EngineRouter.Routes(TaskKind.CadWebEditing,Empty with{PrivateUploadApproved=true}),x=>x.Engine=="AUTOCAD_WEB");}
+ [Fact]public void FullDesktopNeverInventsHostOrUsesNotebookService(){var c=Empty with{DataCanBePublic=true,AutodeskWebEntitlementConfirmed=true};Assert.Single(EngineRouter.Routes(TaskKind.FullAutoCadDesktop,c));Assert.Contains(EngineRouter.Routes(TaskKind.FullAutoCadDesktop,c with{AuthorizedWindowsHost=true}),x=>x.Engine=="RDP");}
+ [Fact]public void HeavyJobsCannotFallBackToAnonymousNotebooks(){foreach(var kind in new[]{TaskKind.VideoConversion,TaskKind.BlenderRendering}){Assert.Empty(EngineRouter.Routes(kind,Empty with{DataCanBePublic=true}));Assert.Single(EngineRouter.Routes(kind,Empty with{DataCanBePublic=true,AuthorizedSshHost=true}));}}
+ [Fact]public void CompatibleLocalToolsAndLightServicesAreComplementary(){var c=Empty with{DataCanBePublic=true,PythonInstalled=true,SympyInstalled=true,FFmpegInstalled=true};Assert.Contains(EngineRouter.Routes(TaskKind.SymbolicMath,c),x=>x.Engine=="SAGECELL");Assert.Contains(EngineRouter.Routes(TaskKind.SymbolicMath,c),x=>x.Engine=="LOCAL_SYMPY");Assert.Contains(EngineRouter.Routes(TaskKind.PythonInteractive,c),x=>x.Engine=="BINDER");Assert.Single(EngineRouter.Routes(TaskKind.VideoConversion,c));}
+}

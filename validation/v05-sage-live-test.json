@@ -1,0 +1,8 @@
+{
+  "provider": "https://sagecell.sagemath.org/",
+  "login_required": false,
+  "input": "print(\"REVIVEOS_SAGE_RESULT\", factor(84))",
+  "observed_output": "REVIVEOS_SAGE_RESULT 2^2 * 3 * 7",
+  "expected_output_matches": true,
+  "no_performance_gain_measured": true
+}

@@ -21,7 +21,7 @@ public sealed class JobRunner(string root) {
    var job=new JobRecord(id,sshAlias==null?"LOCAL":"REMOTE",kind,Path.GetFullPath(input),"running",DateTime.UtcNow,null,null,sshAlias,remote);Save(job);
    async Task Execute(string exe,IEnumerable<string> args){await ExecuteLogged(exe,args,dir,Path.Combine(dir,"execution.log"),ct);}
    try {
-    var command=kind=="python"?(OperatingSystem.IsWindows()?"python":"python3"):kind;
+    var command=kind=="python"&&sshAlias==null?(ToolProbe.PythonPath()??throw new IOException("Python não encontrado no PATH")):kind;
     string[] arguments=kind switch{"python"=>[inputName],"ffmpeg"=>["-nostdin","-n","-i",inputName,"-c:v","libx264","-preset","fast","-c:a","aac",resultName],_=>["-b",inputName,"-o","result","-F","PNG","-f","1"]};
     if(sshAlias==null) await Execute(command,arguments);
     else {

@@ -27,3 +27,9 @@ Uma sessão real mybinder.org iniciou sem conta/cartão/login. Kernel Python no 
 Local: 16 testes passaram; quatro testes exclusivos de Windows foram ignorados no Linux. Novos testes executam todas as células do notebook com CSV/DXF de exemplo, conferem exportação e SHA-256 e impedem sobrescrita de arquivo ao salvar notebook. O teste de notebook é separado do teste remoto e não equivale a benchmark remoto de DXF/AutoCAD. Workflow Windows executa os 20 testes, compila e valida instalação.
 
 Tag v0.4.0 aprovada: https://github.com/Leosenha00/revil/actions/runs/42493043094. Os 20 testes passaram no Windows; diagnóstico, janela WPF, instalação, execução instalada e desinstalação passaram. Instalador baixado e SHA-256 verificado: 593d2724c82a76bb4d2e1e8b7fcb8ca00169907df6cd490360303fb89768ea49.
+
+## 0.5.0
+
+Local: 21 testes passaram; 4 testes Windows foram ignorados no Linux. Cinco testes novos verificam privacidade, exigência de benefício Web e autorização, ausência de host fictício, bloqueio de tarefas pesadas em serviços anônimos e uso de ferramentas compatíveis. Compilação cruzada WPF concluída. O workflow Windows executa os 25 testes e valida instalação/janela/desinstalação.
+
+SageMathCell: cálculo remoto real sem login, factor(84) retornou 2^2 * 3 * 7. Evidência em validation/v05-sage-live-test.json. AutoCAD Web: documentação e abertura oficial integradas; acesso da conta do usuário e desenho real não testados. Nenhuma alegação de ganho no notebook é feita.
