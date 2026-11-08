@@ -1,4 +1,4 @@
-# revil — ReviveOS Hybrid Extreme 0.2.1
+# revil — ReviveOS Hybrid Extreme 0.3.0
 
 Aplicativo Windows 11 x64 em C#/.NET 8 e WPF. Instalador com runtime incluído; não exige instalar .NET separadamente. Código e distribuição: https://github.com/Leosenha00/revil.
 
@@ -68,7 +68,7 @@ Inno Setup 6: `iscc installer/ReviveOS.iss`. Alternativa NSIS: `makensis install
 ## Ainda pendente
 
 - Validação real de Wi-Fi, AutoCAD, temperaturas e ganhos no notebook.
-- Gestão reversível de inicialização, indexação por pasta e serviços opcionais conforme diagnóstico; nenhum serviço é desativado indiscriminadamente.
+- Ampliar a lista validada de inicialização, indexação por pasta e serviços opcionais; a versão 0.3 já gerencia apenas a lista explícita documentada.
 - Integração UI completa do scheduler e estimativas de tarefas.
 - Provisionamento oficial de provedores com consulta autenticada de limites e custos; OAuth/credenciais seguras quando houver integração.
 - Medição de abertura de programas, regressões de benchmark e latência de streaming.
@@ -83,3 +83,13 @@ Não há infraestrutura Windows gratuita identificada ou disponibilizada para Au
 Tags `vX.Y.Z` acionam compilação Windows, testes e smoke test; somente após aprovação o job de release publica o instalador e checksum no GitHub. O job de publicação tem permissão de escrita apenas para esse passo.
 
 Teste SSH opcional: `dotnet run --project tests/ReviveOS.SshIntegration -- <alias> --authorize-test-upload`. Usa um script de teste mínimo e deixa seus arquivos em `.reviveos/jobs/<id>` no host autorizado.
+
+## Otimização profunda (0.3.0)
+
+O botão **OTIMIZAÇÃO PROFUNDA** prepara um plano real e permite selecionar alterações antes de executar. Suporta remover da inicialização por usuário OneDrive, Spotify, Discord, Steam e Epic Games sem desinstalar; pausar/desabilitar SysMain e Windows Search individualmente; e restaurar paginação gerenciada pelo sistema. Essas mudanças gravam snapshots, validam a leitura e oferecem restauração individual/completa. Serviços e paginação exigem executar o aplicativo como administrador. Paginação requer reboot tanto para efeito quanto para restauração completa.
+
+O plano só sugere SysMain se o serviço existe e há HDD confirmado com três amostras de fila de disco cuja média é pelo menos 1. Não significa que SysMain seja a causa: meça antes/depois e reverta regressões. Windows Search não é selecionado automaticamente; sua suspensão prejudica busca e indexação, inclusive de Outlook. Em HD, SysMain também pode beneficiar a abertura de apps. OneDrive deixa de sincronizar até aberto manualmente ao ser retirado do login.
+
+A configuração da paginação é gerenciada via CIM; não são apagados arquivos pagefile.sys por operações de arquivos. Configurações de caminho não padronizadas são recusadas para preservar reversão. O diário fica em deep-changes.json. Antes de desinstalar, use **DESATIVAR E RESTAURAR** como administrador quando houver alterações administrativas.
+
+Decisão de nuvem e template Oracle: [docs/CLOUD-DECISION.md](docs/CLOUD-DECISION.md). O template foi preparado para uma conta do usuário; não foi aplicado e não implica máquina já provisionada ou cobrança zero. O usuário precisa fazer login e verificar elegibilidade/cotas pelo site oficial.

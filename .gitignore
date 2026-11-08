@@ -4,3 +4,8 @@ publish/
 artifacts/
 TestResults/
 *.user
+
+.terraform/
+*.tfstate*
+*.tfvars
+*.tfplan

@@ -1,0 +1,7 @@
+region = "YOUR_HOME_REGION"
+tenancy_ocid = "ocid1.tenancy.REPLACE"
+compartment_ocid = "ocid1.compartment.REPLACE"
+ubuntu_arm64_image_ocid = "ocid1.image.REPLACE_WITH_UBUNTU_ARM64_ALWAYS_FREE_ELIGIBLE"
+ssh_public_key = "ssh-ed25519 REPLACE_WITH_PUBLIC_KEY"
+client_ipv4_cidr = "203.0.113.10/32"
+confirmed_account_free_capacity = false
