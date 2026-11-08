@@ -1,4 +1,4 @@
-# Cobertura real dos requisitos — 0.7
+# Cobertura real dos requisitos — 0.8
 
 Nenhum conjunto de sites significa que todos os requisitos foram atendidos. Esta matriz mantém a diferença entre código implementado e validação no equipamento. Os testes citados são de runner Windows ou de serviços com exemplos, não benchmarks do notebook.
 
@@ -8,8 +8,8 @@ Nenhum conjunto de sites significa que todos os requisitos foram atendidos. Esta
 | 2 App/instalador | WPF e instalador com .NET incluído; instalação/abertura/desinstalação testadas no runner | Teste no Windows 11 do notebook |
 | 3 Wi-Fi Auto Start | WLAN oficial, tarefa opt-in no login, tentativas limitadas e rollback | Identificar bloqueio Fn/OEM; reboot, partida a frio e suspensão reais |
 | 4 Windows optimizer | UAC por helper, teto AC nominal com reversão, inicialização de lista opcional, SysMain/WSearch selecionados, paginação, visual/energia, snapshots e reversão | Efeitos, regressões e ajustes administrativos completos no notebook; não há otimização total de todo serviço/driver |
-| 5 Processos | Lista, RAM, classificação heurística e fechamento cooperativo autorizado | CPU/I/O contínuos por processo, suspensão compatível e classificação ampliada |
-| 6 Turbo | Manual e monitor por aplicativo; ajustes reversíveis | Monitor térmico confiável e ganhos reais; nem todo perfil tem ajustes próprios completos |
+| 5 Processos | Lista, classificação, fechamento cooperativo autorizado e prioridades reversíveis por identidade; CPU de apps opcionais autorizados no agente | I/O por processo, suspensão compatível e classificação ampliada |
+| 6 Turbo | Manual e agente contínuo separado; prioridades por pressão sustentada, orçamento de recursos, recuperação e login opt-in | Sessão contínua sem elevação, consumo prolongado, login e ganhos no notebook; monitor térmico confiável; nem todo perfil tem ajustes próprios |
 | 7 GitHub/Codespaces | Actions compila/testa/publica; devcontainer incluído | Uso do Codespace na conta e verificação de cota; não é desktop CAD |
 | 8 Nuvem | Binder/SageMathCell testados com exemplos; SSH em loopback; Web Autodesk condicional | Host potente real, acesso à assinatura e testes de tarefas do usuário |
 | 9 Scheduler | Estimativa de transferências em biblioteca; central filtra compatibilidade/privacidade | Coletar tempos/velocidades reais e integrar escolha automática à fila |

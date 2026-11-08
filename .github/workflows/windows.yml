@@ -20,6 +20,10 @@ jobs:
       - run: dotnet list ReviveOS.sln package --vulnerable --include-transitive
       - run: dotnet publish src/ReviveOS.UI -c Release -r win-x64 --self-contained true -o publish
       - run: dotnet publish src/ReviveOS.Admin -c Release -r win-x64 --self-contained true -o publish/admin
+      - run: dotnet publish src/ReviveOS.Agent -c Release -r win-x64 --self-contained true -o publish/agent
+      - name: Continuous agent native sampling smoke test
+        shell: powershell
+        run: ./scripts/agent-smoke.ps1
       - name: Administrative helper smoke test
         shell: powershell
         run: ./scripts/admin-smoke.ps1

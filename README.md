@@ -1,4 +1,4 @@
-# revil — ReviveOS Hybrid Extreme 0.7.0
+# revil — ReviveOS Hybrid Extreme 0.8.0
 
 Aplicativo Windows 11 x64 em C#/.NET 8 e WPF. Instalador com runtime incluído; não exige instalar .NET separadamente. Código e distribuição: https://github.com/Leosenha00/revil.
 
@@ -18,7 +18,7 @@ Dados e logs ficam em `%LOCALAPPDATA%\ReviveOS`. Relatórios podem conter nomes,
 | Ajustes | Animações, transparência, Game DVR por usuário e plano de energia; riscos, simulação e reversão individual | Leitura/escrita real no Windows; efeito e suporte no notebook pendentes |
 | Recuperação | Diário antes de escrever, validação, erros individuais e retentativa; restaura também diário 0.1 | Testes com falha injetada e reinício do objeto; desligamento real pendente |
 | Turbo manual | Plano de energia + animações, confirmação e rollback em caso de falha | Alto Desempenho pode não existir; maior calor e consumo |
-| Monitor por aplicativo | Detecta primeiro plano a cada 5 s (AutoCAD, Chrome, Edge, Firefox, VS Code, Python, Blender); reduz apenas animações/transparência e restaura ao sair | Opt-in, ReviveOS aberto; não altera executáveis e não promete fluidez |
+| Otimização contínua | Agente separado amostra CPU/RAM/fila de disco a cada 15 s; ajusta prioridades sob disputa sustentada de CPU; restaura ao aliviar carga ou desativar | Opt-in, permanece com janela fechada; início no login opcional; não fecha programas nem altera clocks |
 | Wi-Fi | API WLAN oficial consulta rádio e liga software quando hardware permite; tarefa opt-in com 3 tentativas no login; log e restauração do rádio | Não controla firmware, BIOS, tecla Fn, adaptador desabilitado ou bloqueio físico; testes no notebook pendentes |
 | Processos | RAM e classificação heurística; fechamento cooperativo confirmado; bloqueio de processos críticos conhecidos | Não força término, não suspende processos; classificação não é diagnóstico de segurança |
 | Benchmarks | 5 amostras de CPU/RAM/fila de disco; teste temporário de 4 MiB, tempos reais e condições registradas | Leitura pode estar em cache; não mede ganho de AutoCAD nem IOPS físicas |
@@ -61,6 +61,8 @@ SDK .NET 8 e Python para integração dos testes:
 ```sh
 dotnet test tests/ReviveOS.Tests -c Release
 dotnet publish src/ReviveOS.UI -c Release -r win-x64 --self-contained true -o publish
+dotnet publish src/ReviveOS.Admin -c Release -r win-x64 --self-contained true -o publish/admin
+dotnet publish src/ReviveOS.Agent -c Release -r win-x64 --self-contained true -o publish/agent
 ```
 
 Inno Setup 6: `iscc installer/ReviveOS.iss`. Alternativa NSIS: `makensis installer/ReviveOS.nsi`. O workflow Windows executa testes, consulta dependências, publica, valida diagnóstico e abertura/fechamento da janela WPF e gera instalador. O devcontainer suporta desenvolvimento Linux, mas WPF exige Windows para execução.
@@ -113,3 +115,17 @@ Veja [componentes e operação](docs/HYBRID-COMPONENTS.md) e [o que ainda falta 
 **CPU E ADMINISTRADOR** oferece inspeção de limites suportados e solicitação por UAC para ações reais. Um helper separado executa operações fixas, valida o mesmo usuário e encerra após responder. Ajustes profundos também pedem UAC quando necessário. `dotnet publish src/ReviveOS.Admin -c Release -r win-x64 --self-contained true -o publish/admin` deve ser executado antes de gerar o instalador; o workflow já faz isso.
 
 O ajuste de CPU é somente estado máximo AC de 100%, com snapshot e reversão. Não é overclock nem injeção/desbloqueio do processador. O procedimento de bypass alegado ainda não foi identificado; não foi implementado ou marcado como funcional. Leia [escopo e testes](docs/ADMIN-CPU.md).
+
+## Otimização contínua (0.8)
+
+Clique **OTIMIZAÇÃO CONTÍNUA: ligar/desligar** e autorize uma vez. O agente sem janela continua depois de fechar a interface, pode iniciar no login deste usuário e não exige administrador. Não é um serviço de sistema; só atua enquanto a sessão do usuário estiver iniciada. Não requer login de nuvem. Use **Estado do agente** para dados com horário; dados antigos não comprovam funcionamento atual. **DESATIVAR E RESTAURAR** interrompe o agente, remove sua inicialização e restaura prioridades registradas, além dos demais ajustes suportados.
+
+A cada 15 segundos usa GetSystemTimes, GlobalMemoryStatusEx e PDH: sem PowerShell, WMI, benchmark de disco ou consulta de internet no ciclo. Após três amostras com CPU >=85%, favorece temporariamente (AboveNormal) aplicativos conhecidos em primeiro plano, incluindo AutoCAD e navegadores. Isso muda distribuição de tempo de CPU, não aumenta sua capacidade. Não favorece se estiver na bateria, energia desconhecida, RAM disponível abaixo de128MB ou pressão sustentada de disco (fila >=2). Retira pressão após três amostras de CPU <65% / fila <0,5. Memória baixa é registrada após três amostras abaixo de256MB; só sai desse estado acima de512MB por três amostras.
+
+OneDrive, Spotify, Discord, Steam e Epic Games só recebem BelowNormal se você selecionar explicitamente seus caminhos, estiverem em segundo plano, consumirem >=2% da CPU total entre amostras e houver pressão sustentada de CPU. Nenhum é autorizado por padrão. Prioridades personalizadas são preservadas. Nunca usa High/Realtime, suspensão, finalização de processos, limpeza de RAM, desativação de proteções ou limites térmicos.
+
+Diário registra PID, criação, caminho, SID e sessão antes de alterar; evita restaurar em PID reutilizado e respeita alterações externas. Falhas de acesso são registradas sem insistir naquele processo. Após queda, o próximo início recupera prioridades antes de atuar. Ao encerrar Windows abruptamente não há garantia de executar rollback antes do desligamento, mas prioridades são transitórias e os processos novos têm identidades diferentes. Inicialização e desligamento voluntário fazem restauração suportada. Agente elevado é recusado; execute a interface normalmente e use UAC só nos ajustes administrativos individuais.
+
+Se o próprio agente superar 3% da CPU total ou96MB de working set por três amostras, restaura ajustes e amostra a cada60s até recuperar orçamento. São limites de reação, não garantia de consumo. Status em disco a cada30s; diário somente nas transições; log limitado a aproximadamente1MiB mais uma rotação. Não mede temperatura/GPU genericamente. Com a interface aberta, o backup periódico próprio pode ser adiado até quatro minutos sob pressão; o agente não agenda backups sozinho.
+
+Testes automatizados cobrem histerese, falta de contadores, bateria, pressão de disco/RAM, orçamento, recuperação de diário, PID reutilizado e prioridade externa. Em Windows verificam contadores nativos e alteração/restauração real da prioridade de um processo exclusivo de teste. CI verifica instalador e recusa de token elevado; uso prolongado sem elevação, inicialização no login, desempenho do agente e ganhos no Pentium T4500/3GB dependem do notebook. Não há benchmark antes/depois desse hardware e nenhum ganho percentual é declarado.
