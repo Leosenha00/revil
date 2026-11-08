@@ -24,6 +24,9 @@ jobs:
       - name: Continuous agent native sampling smoke test
         shell: powershell
         run: ./scripts/agent-smoke.ps1
+      - name: Continuous agent standard-user lifecycle
+        shell: powershell
+        run: ./scripts/agent-standard-user-smoke.ps1
       - name: Administrative helper smoke test
         shell: powershell
         run: ./scripts/admin-smoke.ps1
